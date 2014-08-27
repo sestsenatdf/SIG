@@ -1,0 +1,461 @@
+﻿/** sest-dark theme */
+
+/** Blue color color:rgba(82,155,234,255); */
+
+/* border rgba(158,158,158,255) */
+
+body {
+    color: #fff;
+    font-family: 'Open Sans Condensed', sans-serif !important;
+    /*font-size: 62.5% ;*/
+}
+
+#afui.sest-dark {
+    /*background:white;*/
+    /*color:#53575E;*/
+    color: #fff;
+    font-family: 'Open Sans Condensed', sans-serif !important;
+    font-size: 62.5%;
+    /*font-size:1.1em;*/
+}
+
+#afui #aside_menu .list > li > a, #afui #menu .list > li > a {
+    font-size: 1.6em;
+}
+
+/* all */
+::-webkit-input-placeholder {
+    color: rgba(255,255,255,0.8);
+    font-family: 'Open Sans Condensed', sans-serif !important;
+}
+
+::-moz-placeholder {
+    color: rgba(255,255,255,0.8);
+    font-family: 'Open Sans Condensed', sans-serif !important;
+}
+/* firefox 19+ */
+:-ms-input-placeholder {
+    color: rgba(255,255,255,0.8);
+    font-family: 'Open Sans Condensed', sans-serif !important;
+}
+/* ie */
+input:-moz-placeholder {
+    color: rgba(255,255,255,0.8);
+    font-family: 'Open Sans Condensed', sans-serif !important;
+}
+
+#afui select,
+#afui textarea,
+#afui input[type="text"],
+#afui input[type=search],
+#afui input[type="password"],
+#afui input[type="datetime"],
+#afui input[type="datetime-local"],
+#afui input[type="date"],
+#afui input[type="month"],
+#afui input[type="time"],
+#afui input[type="week"],
+#afui input[type="number"],
+#afui input[type="email"],
+#afui input[type="url"],
+#afui input[type="tel"],
+#afui input[type="color"],
+#afui .input-group {
+    padding-bottom: 0;
+    padding-top: 0;
+    background: rgba(255,255,255,0.2);
+    /*color:#fff !important;*/
+    margin-bottom: 5px;
+    color: inherit;
+    border: none;
+    font-family: 'Open Sans Condensed', sans-serif !important;
+    /*font-size:1.2em;*/
+    border-radius: 0px;
+}
+
+#afui.sest-dark {
+    font-family: 'HelveticaNeue', 'Helvetica Neue',Helvetica, Arial, sans-serif;
+}
+
+    #afui.sest-dark .header {
+        background: rgb(41,80,134);
+        color: inherit;
+        border: none;
+        border-bottom: 1px solid rgba(41,80,134,255);
+    }
+
+        #afui.sest-dark .header .button {
+            color: rgba(255,255,255,255);
+            border-color: transparent;
+            font-size: 1.6em;
+            font-weight: normal;
+        }
+
+        #afui.sest-dark .header h1 {
+            color: inherit;
+            text-shadow: none;
+        }
+
+    #afui.sest-dark .panel, #afui.sest-dark #modalContainer {
+    }
+
+        #afui.sest-dark .panel h2 {
+            color: inherit;
+        }
+
+    #afui.sest-dark .footer {
+        background: rgb(41,80,134);
+        color: white;
+        border-top: 1px solid rgba(41,80,134,255);
+        box-shadow: none;
+    }
+
+        #afui.sest-dark .footer > footer > a:not(.button) {
+            color: rgba(255,255,255,255);
+        }
+
+        #afui.sest-dark .footer > footer > a.pressed:not(.button) {
+            border-radius: 0;
+            background: transparent;
+        }
+
+    #afui.sest-dark #menubadge:after {
+        border-color: rgba(82,155,234,255);
+    }
+
+    #afui.sest-dark .list {
+        font-weight: normal;
+    }
+
+    #afui.sest-dark > #aside_menu,
+    #afui.sest-dark > #menu {
+        border-right: 1px solid #bbb;
+        background: rgba(238,238,238,255);
+        color: black;
+    }
+
+    #afui.sest-dark #aside_menu .list li, #afui.sest-dark #aside_menu .list .divider, #afui.sest-dark #aside_menu .list li:first-child, #afui.sest-dark #aside_menu .list li:last-child,
+    #afui.sest-dark #menu .list li, #afui.sest-dark #menu .list .divider, #afui.sest-dark #menu .list li:first-child, #afui.sest-dark #menu .list li:last-child {
+        border-color: rgb(215,215,215);
+        font-weight: normal;
+        box-shadow: none;
+    }
+
+    #afui.sest-dark #aside_menu .list .divider,
+    #afui.sest-dark #menu .list .divider {
+        background: rgba(238,238,238,255);
+        color: inherit;
+        font-size: 2em;
+        border-bottom: 1px solid rgb(215,215,215);
+        color: black;
+    }
+
+    #afui.sest-dark #aside_menu .list a,
+    #afui.sest-dark #menu .list a {
+        color: black;
+    }
+
+    #afui.sest-dark #aside_menu .list,
+    #afui.sest-dark #menu .list {
+        background: white;
+        font-weight: normal;
+        color: black;
+    }
+
+    #afui.sest-dark .list > li > a:after {
+        color: rgba(217,217,217,255);
+    }
+
+    #afui.sest-dark .button {
+        background-color: transparent;
+        font-size: 1.4em;
+    }
+
+    #afui.sest-dark a.button.gray {
+        /*background-color:transparent;*/
+        background: #efefef;
+        color: rgba(82,155,234,255);
+    }
+
+    #afui.sest-dark #backButton {
+        background: rgba(249,249,249,1);
+        color: rgba(255,255,255,255);
+        display: block;
+        position: absolute;
+        line-height: 44px;
+        left: 25px;
+        text-overflow: ellipsis;
+        font-size: 1.6em;
+        padding: 0;
+        text-shadow: none;
+        background-color: transparent;
+        border: none;
+        border-color: transparent;
+        height: 44px;
+        top: 0;
+        border-radius: 0;
+        box-shadow: none;
+        margin: 0;
+        padding-left: 0;
+        text-align: center;
+        width: 50px;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+        #afui.sest-dark #backButton::before {
+            z-index: -1;
+            font-size: 1.7em;
+            position: absolute;
+            top: 10px;
+            left: -20px;
+            text-align: center;
+            border-radius: 0;
+            border: none;
+            border-color: transparent;
+            box-shadow: none;
+            -webkit-transform: none;
+            transform: none;
+            font-family: 'chevron';
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            content: "\f054";
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+            background-color: transparent;
+        }
+
+        #afui.sest-dark #backButton::after {
+            /*content: '';*/
+            width: 0;
+            height: 0;
+            border: none;
+        }
+
+
+    #afui.sest-dark .button {
+        box-shadow: none;
+        border-radius: 0;
+        border-color: #ccc;
+        color: rgba(82,155,234,255);
+        text-shadow: none;
+    }
+
+    #afui.sest-dark .button-grouped *,
+    #afui.sest-dark .button-grouped > .button:first-child,
+    #afui.sest-dark .button-grouped.vertical *,
+    #afui.sest-dark .button-grouped.vertical > .button:last-child,
+    #afui.sest-dark .header .button-grouped > .button {
+        border-color: rgba(82,155,234,255);
+    }
+
+        #afui.sest-dark .button-grouped > .button.pressed,
+        #afui.sest-dark .header .button-grouped > .button.pressed {
+            color: white;
+            background: rgba(82,155,234,255);
+        }
+
+    #afui.sest-dark .afPopup {
+        border: 1px solid rgba(158,158,158,255);
+        border-radius: 10px;
+        padding: 0;
+        text-align: center;
+        color: inherit;
+        background: rgba(249,249,249,1);
+    }
+
+        #afui.sest-dark .afPopup > HEADER {
+            padding: 10px 0;
+        }
+
+        #afui.sest-dark .afPopup > DIV {
+            padding-bottom: 10px;
+        }
+
+        #afui.sest-dark .afPopup > FOOTER {
+            border-top: 1px solid #aaa;
+        }
+
+            #afui.sest-dark .afPopup > FOOTER > A.center {
+                width: 100% !important;
+            }
+
+        #afui.sest-dark .afPopup .button {
+            border: none;
+            width: 50%;
+            margin: 0;
+            background: transparent;
+            color: rgba(82,155,234,255);
+            padding: 12px 0;
+        }
+
+            #afui.sest-dark .afPopup .button.pressed {
+                background: transparent;
+            }
+
+    #afui.sest-dark .button.pressed {
+        font-weight: bold;
+        background: white;
+    }
+
+    #afui.sest-dark .afPopup a:not(:first-of-type) {
+        border-left: 1px solid rgba(158,158,158,255);
+    }
+
+    #afui.sest-dark #af_actionsheet {
+        background-color: transparent;
+        color: black;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-top: transparent 1px solid;
+        box-shadow: 0px -1px 2px rgba(0,0,0,0);
+    }
+
+        #afui.sest-dark #af_actionsheet a {
+            background-image: none;
+            text-shadow: none;
+            box-shadow: none;
+            font-weight: normal;
+            border-radius: 0;
+            border: none;
+            -webkit-box-shadow: none;
+            color: rgba(82,155,234,255);
+            background-color: white;
+            cursor: pointer;
+            border-radius: 0px;
+            line-height: 40px;
+            font-size: 2em;
+            margin-bottom: 1px;
+        }
+
+            #afui.sest-dark #af_actionsheet a:first-child {
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+
+            #afui.sest-dark #af_actionsheet a:nth-last-child(2) {
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+
+            #afui.sest-dark #af_actionsheet a.cancel {
+                font-weight: bold;
+                margin: 9px 0;
+                border-radius: 5px;
+            }
+
+            #afui.sest-dark #af_actionsheet a.red {
+                color: #f44;
+            }
+
+    #afui.sest-dark .footer > footer > a.pressed:not(.button), .footer > footer > a.icon.pressed:not(.button):before {
+        color: rgba(82,155,234,255);
+    }
+
+    #afui.sest-dark .button.previous {
+        border: none;
+    }
+
+    #afui.sest-dark .button.next {
+        border: none;
+    }
+
+    #afui.sest-dark .button.previous::after {
+        color: rgba(82,155,234,255);
+        z-index: -1;
+        font-size: 2.2em;
+        position: absolute;
+        top: 2px;
+        left: -25px;
+        text-align: center;
+        border-radius: 0;
+        border: none;
+        border-color: transparent;
+        box-shadow: none;
+        -webkit-transform: none;
+        transform: none;
+        font-family: 'chevron';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        content: "\f054";
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+        background-color: transparent;
+    }
+
+    #afui.sest-dark .button.next::after {
+        color: rgba(82,155,234,255);
+        z-index: -1;
+        font-size: 2.2em;
+        position: absolute;
+        top: 6px;
+        right: -25px;
+        text-align: center;
+        border-radius: 0;
+        border: none;
+        border-color: transparent;
+        box-shadow: none;
+        -webkit-transform: none;
+        transform: none;
+        font-family: 'chevron';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        content: "\f054";
+        background-color: transparent;
+    }
+
+    #afui.sest-dark .button.gray {
+        color: #999;
+        background-color: transparent;
+    }
+
+    #afui.sest-dark .button.yellow {
+        color: #F1C222;
+        background-color: transparent;
+    }
+
+    #afui.sest-dark .button.red {
+        color: #b20000;
+        background-color: transparent;
+    }
+
+    #afui.sest-dark .button.green {
+        color: #009C0C;
+        background-color: transparent;
+    }
+
+    #afui.sest-dark .button.orange {
+        color: #FF8000;
+        background-color: transparent;
+    }
+
+    #afui.sest-dark .button.black {
+        color: black;
+        background-color: transparent;
+    }
+
+    #afui.sest-dark .button.slate {
+        color: #171F28;
+        background-color: transparent;
+    }
+
+    #afui.sest-dark .af-badge {
+        border: none;
+        box-shadow: none;
+        font-size: 1.2em;
+    }

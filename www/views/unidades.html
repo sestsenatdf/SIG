@@ -1,0 +1,57 @@
+﻿<header>
+    <a onclick='af.ui.toggleSideMenu()' class='menuButton'></a>
+    <a id="backButton" class="button backButton">Voltar</a>
+    <h1>Unidades</h1>
+</header>
+
+<main>
+    <div class="main-container">
+        <div id="filtroUnidade">
+            <h3>Localize a unidade mais próxima</h3>
+            <p>O SEST SENAT possui unidades localizadas nos grandes centros urbanos e em postos de abastecimento das principais rodovias do país. </p>
+
+            <form data-appbuilder-object="form" data-position="static">
+                <div class="select_element form_element" data-appbuilder-object="select">
+                    <select id="slUF">
+                        <option value="">Selecione uma UF</option>
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AM">AM</option>
+                        <option value="AP">AP</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MG">MG</option>
+                        <option value="MS">MS</option>
+                        <option value="MT">MT</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="PR">PR</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="RS">RS</option>
+                        <option value="SC">SC</option>
+                        <option value="SE">SE</option>
+                        <option value="SP">SP</option>
+                        <option value="TO">TO</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div id="qntUnidade"></div>
+        <div id="boxLista">
+            <div id="listaUnidade"></div>
+        </div>
+    </div>
+    <script>
+        $("#boxLista").scroller();
+    </script>
+</main>
+

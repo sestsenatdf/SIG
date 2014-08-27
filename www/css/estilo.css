@@ -1,0 +1,499 @@
+/* Prevent copy paste for all elements except text fields */
+* {
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+input, textarea {
+    -webkit-user-select: text;
+}
+/*******Fim Default*********/
+
+
+body, p, h1, h2, h3, h4, a {
+    font-family: 'Open Sans Condensed', sans-serif !important;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+    a:focus {
+        color: #fff;
+    }
+
+    a:hover {
+        color: #fff;
+    }
+
+    a:active {
+        color: #fff;
+    }
+
+.main-container {
+    padding: 1em;
+    font-size: 1.2em;
+}
+
+#intro {
+    background: url(../images/intro2.png) !important;
+    position: relative;
+}
+
+    #intro .logo {
+        position: absolute;
+        width: 175px;
+        height: 24px;
+        left: 50%;
+        top: 50%;
+        margin-left: -87.5px;
+        margin-top: -12px;
+    }
+
+
+#menuSest {
+    background: url(../images/intro2.png) !important;
+    position: relative;
+}
+
+    #menuSest .logo, #login .logo {
+        text-align: center;
+        margin: 50px auto 50px auto;
+        width: 175px;
+        height: 24px;
+    }
+
+    #menuSest ul {
+        margin: 0;
+        padding: 0;
+    }
+
+        #menuSest ul li {
+            font-family: 'Open Sans Condensed', sans-serif !important;
+            background: rgba(255,255,255,0.1);
+            margin: 0 0 2px 0;
+            color: #fff;
+            font-size: 2em;
+            list-style: none;
+        }
+
+            #menuSest ul li a {
+                display: block;
+                padding: 25px 20px 25px 20px;
+                text-decoration: none;
+                color: #fff;
+            }
+
+            #menuSest ul li span {
+                float: right;
+            }
+
+.panel {
+    background: url(../images/intro2.png) !important;
+}
+
+#institucional, #login, #destaque,
+#sobre, #unidade {
+    background: url(../images/intro2.png) !important;
+}
+
+    #institucional p, h3 {
+        font-family: 'Open Sans Condensed', sans-serif !important;
+        font-size: 1.8em;
+        color: #fff;
+    }
+
+    #institucional .logo {
+        text-align: center;
+    }
+
+    #institucional h3 {
+        padding: 20px 0;
+    }
+
+
+#unidades {
+    background: url(../images/intro2.png) !important;
+    color: #fff;
+}
+
+    #unidades h3, p {
+        font-family: 'Open Sans Condensed', sans-serif !important;
+        font-size: 1.8em;
+        font-weight: normal;
+        color: #fff !important;
+    }
+
+#promocaoSocial {
+    background: url(../images/intro2.png) !important;
+}
+
+footer a p.icone {
+    /*font-family:'Open Sans Condensed', sans-serif !important;*/
+    margin: 0 0 0 0 !important;
+    padding: 0;
+}
+
+.grid {
+    margin: 3px -7px;
+}
+
+    .grid:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .grid li {
+        position: relative;
+        display: block;
+        float: left;
+        width: 10%;
+        padding: 5% 1%;
+        text-align: center;
+    }
+
+        .grid li a {
+            text-align: center;
+        }
+
+    .grid .grid-photo-box {
+        position: absolute;
+        left: 3px;
+        right: 3px;
+        top: 3px;
+        bottom: 3px;
+        background-color: rgba(128,128,128,0.2);
+    }
+
+    .grid img {
+        width: 100%;
+        height: 100%;
+    }
+
+@media only screen and (max-width : 1024px) {
+    .grid li {
+        width: 12.5%;
+        padding-bottom: 12.5%;
+    }
+}
+
+@media only screen and (max-width : 768px) {
+    .grid li {
+        width: 16.6%;
+        padding-bottom: 16.6%;
+    }
+}
+
+@media only screen and (max-width : 480px) {
+    .grid li {
+        width: 25%;
+        padding-bottom: 25%;
+    }
+}
+
+@media only screen and (max-width : 320px) {
+    .grid li {
+        width: 33.3%;
+        padding-bottom: 33.3%;
+    }
+}
+
+
+#login label {
+    float: none !important;
+    margin-left: 25px;
+}
+
+#afui.sest a.button.blue {
+    background: rgba(36,58,111,255);
+    color: #ffffff;
+    border: 0;
+    width: 100%;
+    font-weight: normal;
+    padding: 20px 0;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+/*#afui.sest footer > a:not(.button) .af-badge {
+    right: auto;
+    margin-left: 5px;
+    margin-top: -2px;
+}*/
+
+
+#afui select, #afui textarea, #afui input[type="text"], #afui input[type=search], #afui input[type="password"], #afui input[type="datetime"], #afui input[type="datetime-local"], #afui input[type="date"], #afui input[type="month"], #afui input[type="time"], #afui input[type="week"], #afui input[type="number"], #afui input[type="email"], #afui input[type="url"], #afui input[type="tel"], #afui input[type="color"], #afui .input-group {
+    margin-bottom: 5px;
+}
+
+/**********SplashScreen***********/
+
+#pg::-webkit-progress-bar {
+    background-color: #fff;
+}
+
+#pg::-webkit-progress-value {
+    background: #069;
+}
+
+/*progress[value]::-webkit-progress-bar {
+     background-color: red;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}*/
+
+#splashscreen .splashscreen progress {
+    background: #0B8DAD !important;
+    border: 0;
+    padding: 0;
+    width: 250px;
+    height: 0.5%;
+}
+
+
+#afui > div#splashscreen {
+    background: url(../images/intro2.png) !important;
+}
+
+#afui div.splashscreen {
+    background: none !important;
+    margin: auto 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+    #afui div.splashscreen a {
+        display: block;
+        margin-bottom: 10px;
+        text-align: center;
+        margin-top: 25%;
+    }
+
+/*******Unidades******/
+
+#boxLista {
+    overflow: auto;
+    margin-top: 5px;
+}
+
+#listaUnidade li {
+    font-family: 'Open Sans Condensed', sans-serif !important;
+    width: 100%;
+    list-style: none;
+    font-size: 1.6em;
+    border-bottom: 1px dashed #fff;
+    height: 50px;
+}
+
+span.unidade-tipologia {
+    font-size: 1.7em;
+    font-weight: bold;
+    color: #5cf;
+    margin-right: 20px;
+}
+
+span.unidade-mensagem {
+    height: 30px;
+}
+
+span.unidade-seta {
+    float: right;
+    zoom: 0.8;
+    height: 30px;
+    margin-top: 15px;
+}
+
+
+.sestPicture.unidade {
+    background: rgba(255,255,255,0.4);
+    width: 150px;
+    /*height: 150px;*/
+    margin-right: 10px;
+}
+
+    .sestPicture.unidade:before {
+        /*content: "\5c";*/
+        font-family: IcoMoon;
+        /*margin-left: 0.94em;
+        margin-top: 0.9em;*/
+        font-size: 5em;
+        display: block;
+    }
+
+
+@media (min-width:540px) {
+    .sestPicture.unidade {
+        width: 300px;
+        /*height: 300px;*/
+    }
+
+        .sestPicture.unidade:before {
+            /*margin-left: 1.28em;
+            margin-top: 1.25em;*/
+            font-size: 8em;
+        }
+}
+
+
+
+#afui #mapa.panel {
+    padding: 0;
+}
+
+#myMap {
+    height: 100%;
+}
+
+/******Estilo******/
+.title-nav {
+    height: 44px;
+    background: rgba(41,80,134,255);
+    color: #fff;
+}
+
+#nav_config .g, #nav_main .g {
+    text-align: left;
+}
+
+#nav_config .list > li > a:after,
+#nav_main .list > li > a:after {
+    content: none;
+}
+
+/***********Mensagens de erro **********/
+
+#afui label.error {
+    text-align: left;
+    color: rgba(255, 100, 100, 1);
+    padding: 0;
+}
+
+#afui #sobre input[type='text'], #afui #sobre input[type='email'], #afui #sobre textarea {
+    width: 100%;
+}
+
+
+
+/************teste***************/
+.mobiletest-div {
+    display: none;
+}
+
+#servicos {
+    text-align: left;
+    margin-top: 20px;
+}
+
+    #servicos .conteudoServico li {
+        display: block;
+        height: auto;
+        text-align: center;
+        background: none;
+        font-size: 1.4em;
+    }
+
+    #servicos li {
+        display: inline-block;
+        min-width: 45px;
+        height: 70px;
+        background: rgba(200,200,200,0.2);
+        text-align: center;
+        text-align: center;
+        padding: 5px;
+    }
+
+        #servicos li > p {
+            line-height: 1em;
+        }
+
+    #servicos i {
+        margin: 15px 0 5px 10px;
+        display: block;
+    }
+
+.conteudoServico {
+    background: rgba(255,255,255,0.8);
+    color: #345FA0;
+    padding: 10px;
+}
+
+    .conteudoServico p, #servicos .ativo p {
+        color: #345FA0 !important;
+    }
+
+#servicos li.ativo {
+    background: rgba(255,255,255,0.8);
+}
+
+.destaque h1 {
+    font-size: 1.4em;
+}
+
+hr {
+    border: 1px dotted rgba(255,255,255,0.5);
+}
+
+.picture-destaque {
+    max-width: 100%;
+    background: rgba(0,0,0,0.3);
+    height: 10em;
+}
+
+
+@media (max-width:420px) {
+    .destaque {
+        width: 100%;
+        background: rgba(255,255,255,0.2);
+        padding: 1em;
+        margin: 0 0 10px 0;
+    }
+}
+
+@media (min-width:420px) and (max-width:960px) {
+    .main-container {
+        padding: 1.8em;
+        /*font-size: 1.4em;*/
+    }
+
+    .destaque {
+        width: 48%;
+        display: inline-block;
+        background: rgba(255,255,255,0.2);
+        padding: 1em;
+        margin: 0;
+    }
+
+        .destaque:nth-of-type(odd) {
+            /*background: red !important;*/
+            margin: 0 4% 2% 0;
+        }
+}
+
+@media (min-width:960px) {
+    .main-container {
+        padding: 2.5em;
+        /*font-size: 1.4em;*/
+    }
+
+    .destaque {
+        width: 32%;
+        display: inline-block;
+        background: rgba(255,255,255,0.2);
+        padding: 1em;
+        /*margin: 0 1.25% 2% 1.25%;*/
+        margin: 0;
+    }
+
+        .destaque:nth-of-type(3n+2) {
+            /*background: red !important;*/
+            margin: 0 2% 2%;
+        }
+}
+
+#afui label.error {
+    width: 100%;
+}

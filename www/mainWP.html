@@ -1,0 +1,327 @@
+﻿<html>
+<head>
+    <title>Sest Senat</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="stylesheet" type="text/css" href="appframework-2.1.0/build/css/af.ui.css" />
+    <!--<link href="appframework-2.1.0/build/css/af.uiSEST.css" rel="stylesheet" />-->
+    <link href="css/af.ui.SEST.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="appframework-2.1.0/build/css/icons.css" />
+    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href="css/form.css" rel="stylesheet" />
+
+    <!--[if lt IE 8]><!-->
+    <link rel="stylesheet" href="css/ie7/ie7.css">
+    <!--<![endif]-->
+    <!--------Scripts AppFramework-------->
+    <script src="cordova.js"></script>
+    <!--<script src='intelxdk.js'></script>-->
+    <script src="scripts/Jquery/jquery-2.1.1.min.js"></script>
+    <script src="scripts/Jquery/jquery.loadTemplate-1.4.4.js"></script>
+    <script src="scripts/Jquery/jquery-validate.js"></script>
+    <!--<script src="appframework-2.1.0/build/appframework.js"></script>-->
+    <script src="appframework-2.1.0/build/ui/af.ui.jquery.js"></script>
+    <script src="appframework-2.1.0/plugins/af.slidemenu.js"></script>
+    <!--<script src="appframework-2.1.0/jq.appframework.js"></script>-->
+    <!--<script src="appframework-2.1.0/build/ui/appframework.ui.js"></script>-->
+    <script type="text/javascript"
+            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDDusZ684WS0g-FFwJV0KKi1eeP6v247KU&sensor=TRUE">
+    </script>
+
+    <!--<script src="appframework-2.1.0/plugins/af.slidemenu.js"></script>-->
+    <!--<script src="phonegap.js"></script>-->
+    <script src="scripts/fixBugs.js"></script>
+    <script src="scripts/appSESTSENAT.js"></script>
+    <script src='scripts/app.js'></script>
+    <!--<script src="http://debug-software.intel.com/target/target-script-min.js#b8d51f18-fe38-11e3-8eac-22000a98b3d6"></script>-->
+    <script src="http://debug.build.phonegap.com//target/target-script-min.js#b8d51f18-fe38-11e3-8eac-22000a98b3d6"></script>
+</head>
+<body onload="onLoad()">
+    <div id="afui" class="sest">
+        <!--SplashScreen-->
+        <div id="splashscreen">
+            <div class="splashscreen">
+                <a href="#login">
+                    <img class="logo" src="./images/logo sestb.png" />
+                </a>
+                <progress id="pg" max="6"></progress>
+            </div>
+        </div>
+
+        <div id="header"></div>
+        <div id="content">
+            <!--login-->
+            <!--<div class="panel" id="login" data-header="none" data-defer="views/login.html" data-footer="none"></div>-->
+            <!--selected="true"-->
+            <!--menu-->
+            <div class="panel " id="menuSest" data-header="none" data-defer="views/menu.html" data-footer="none" ></div>
+            <!-- institucional-->
+            <div class="panel " data-defer="views/institucional.html" id="institucional" data-footer="footerSest" data-nav="nav_config"></div>
+            <!-- unidades-->
+            <div class="panel" data-defer="views/unidades.html" id="unidades" data-load="setTitulo" data-footer="footerSest" data-nav="nav_config" style="overflow:hidden"></div>
+            <!--unidade-->
+            <div class="panel" data-defer="views/unidade.html" id="unidade" data-nav="nav_config"></div>
+            <!--unidade-->
+            <!--data-defer="views/box-unidade.html"-->
+            <div class="panel" id="box-unidade" data-nav="nav_config">
+                <header>
+                    <a onclick='af.ui.toggleAsideMenu();' class='menuButton'></a>
+                    <a id="backButton" class="button backButton">Voltar</a>
+                    <h1>Brasília</h1>
+                </header>
+
+                <main>
+                    <div class="main-container">
+                        <div id="containerUnidade" style="margin-top:10px"></div>
+                        <div id="servicos">
+                            <ul>
+                                <li class="ativo">
+                                    <p>
+                                        <i class="iconSest icon-aid g "></i>
+                                        Saúde
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <i class="iconSest icon-palestra g"></i>
+                                        Qualidade
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <i class="iconSest icon-campoFutebol g"></i>
+                                        Esporte
+                                    </p>
+                                </li>
+
+                                <li>
+                                    <p>
+                                        <i class="iconSest icon-teatro g"></i>
+                                        Cultura
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <i class="iconSest icon-lazer g"></i>
+                                        Lazer
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <i class="iconSest icon-palestra g"></i>
+                                        Social
+                                    </p>
+                                </li>
+                            </ul>
+                            <div class="conteudoServico">
+                                <h1 class="">Serviço</h1>
+                                <p>Serviços de Odontologia</p>
+                                <p>Serviços de Cardiovascular </p>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer>
+                    <!--<a href="#" data-transition="fade">
+                        <i class="icon icon-phone g" ></i>
+                        <p class="icone">Chamar</p>
+                    </a>-->
+                    <a href="#mapa" data-transition="fade">
+                        <i class="icon icon-location g"></i>
+                        <p class="icone">Chegar aqui</p>
+                    </a>
+                </footer>
+
+                <div id="containerTmpl"></div>
+                <div id="unidadeTmpl" style="display:none">
+                    <div style="float:left;width:150px" class="sestPicture unidade">
+                        <!--<img src="http://www.sestsenat.org.br/PublishingImages/Unidades/104.jpg" alt="unidade samambaia" style="width:90%" />-->
+                        <!--<img data-src="" data-alt="Nome" data-link-wrap="authorPicture" />-->
+                    </div>
+                    <div>
+                        <h3>Endereço</h3>
+                        <p>
+                            <span data-content="Endereco"></span><br />
+                            CEP: <span data-content="CEP"></span>
+                        </p>
+                        <h3>Contatos</h3>
+                        <p>
+                            Telefone: <span data-content="Telefone"></span><br />
+                            Fax: <span data-content="Fax"></span><br />
+                            Email: <span data-content="Email"></span>
+                        </p>
+                        <h3>Horário de Funcionamento</h3>
+                        <p>
+                            <span data-content="HorarioFuncionamento"></span>
+                        </p>
+                        <h3>Sábado e domingo</h3>
+                        <p>
+                            Consulte a programação da unidade por telefone
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- pesquisar-->
+            <div class='panel' data-defer="views/promocaoSocial.html" id="promocaoSocial" data-footer="footerSest" data-nav="nav_config"></div>
+            <!--sobre-->
+            <div class='panel' id="sobre" data-footer="footerSest" data-nav="nav_config">
+                <header>
+                    <a onclick='af.ui.toggleAsideMenu();' class='menuButton'></a>
+                    <a id="backButton" class="button backButton">Voltar</a>
+                    <h1>Fale conosco</h1>
+                </header>
+                <main>
+                    <div class="main-container">
+                        <p>
+                            Segunda a sexta-feira, das 7h às 19h, pelo
+                            telefone <b>0800 728 2891</b>.
+                            Se preferir, entre em contato pelo formulário
+                            abaixo.
+                        </p>
+                        <form id="formEmail">
+                            <input id="nomeFrom" name="nomeFrom" type="text" placeholder="Nome">
+                            <input id="emailFrom" type="email" name="emailFrom" placeholder="E-mail">
+                            <textarea id="emailBody" name="emailBody" placeholder="Mensagem" rows="5"></textarea>
+                            <a id="btnEnviar" href="#" class="button blue">Enviar</a>
+                        </form>
+                    </div>
+                </main>
+
+            </div>
+            <!--destaque-->
+            <!--data-defer="views/destaque.html"-->
+            <div class='panel' id="destaque" data-footer="none" data-nav="nav_config" selected="true">
+                <header>
+                    <a onclick='af.ui.toggleAsideMenu();' class='menuButton'></a>
+                    <a id="backButton" class="button backButton">Voltar</a>
+                    <h1>Destaque</h1>
+                </header>
+                <main>
+                    <div class="main-container">
+                        <div class="box-destaque"></div>
+                    </div>
+                </main>
+            </div>
+            <!-- pagina2-->
+            <div class="panel" id="pagina2" data-defer="views/pagina2.html" data-footer="footerSest" data-nav="nav_config"></div>
+            <!-- teste-->
+            <div class="panel" id="teste" data-footer="footerSest">
+                <div class="main-container">
+                    <button id="btTesteAjax" class="btn blue">teste Ajax</button>
+                    <button id="btTesteVersion">teste Version</button>
+                    <button id="btTesteConnection">teste Conexão</button>
+                    <a onclick="showModal('modalFechar');">Abrir Modal</a>
+
+
+                    <a href="tel:6195951212">call to 95951212</a>
+                    <span style="width:50px;height:50px;background:#ffd800;display:block;position:absolute;bottom:0"></span>
+                </div>
+            </div>
+
+            <div class="panel" id="mapa" data-header="none" data-footer="footerSest" style="overflow:hidden">
+                <div id="myMap"></div>
+            </div>
+            <div class="panel" id="modalFechar">
+                <div style="width:100px;height:100px;background:#fff">
+                    <h3 style="color:#444">Deseja fechar o aplicativo?</h3>
+                    <button> Sair</button>
+                    <button> Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+        <footer id='footerSest'>
+            <a href="#menuSest" data-transition="pop" class="icon iconSest icon-home2">
+                Home
+            </a>
+            <a href="#unidades" data-transition="flip" class="icon iconSest icon-location ">
+                Unidades
+            </a>
+            <a href="#destaque" data-transition="slideup" class="icon iconSest icon-newspaper ">
+                Destaque
+                <span class="af-badge">3</span>
+            </a>
+            <a href="#sobre" data-transition="slidedown" class="icon iconSest icon-info ">
+                Fale conosco
+            </a>
+        </footer>
+
+        <!-- first side menu is the default -->
+        <nav id="nav_config">
+            <ul class="list">
+                <li class="divider">
+                    Menu
+                </li>
+                <li>
+                    <a class="icon iconSest icon-newspaper g cinza sombra" href="#destaque">Destaques</a>
+                </li>
+                <li>
+                    <a class="icon location g cinza sombra" href="#unidades">Unidades</a>
+                </li>
+                <li>
+                    <a class="icon iconSest icon-office g cinza sombra" href="#institucional">Institucional</a>
+                </li>
+                <li>
+                    <a class="icon news g cinza sombra" href="#promocaoSocial">Promoção Social</a>
+                </li>
+                <li>
+                    <a class="icon news g cinza sombra" href="#pagina2">Página Teste</a>
+                </li>
+                <li>
+                    <a class="icon info g cinza sombra" href="#sobre">Fale Conosco</a>
+                </li>
+            </ul>
+        </nav>
+
+        <aside id="nav_main">
+            <!--<div class='title-nav'>Home</div>-->
+            <!--Right Side menu-->
+            <ul class="list">
+                <li class="divider">
+                    Personalização
+                </li>
+                <li>
+                    <a class="icon pencil g cinza sombra" href="#main">Alterar tema</a>
+                </li>
+                <li class="divider">
+                    Menu
+                </li>
+                <li>
+                    <a class="icon iconSest icon-newspaper g cinza sombra" href="#destaque">Destaques</a>
+                </li>
+                <li>
+                    <a class="icon location g cinza sombra" href="#unidades">Unidades</a>
+                </li>
+                <li>
+                    <a class="icon iconSest icon-office g cinza sombra" href="#institucional">Institucional</a>
+                </li>
+                <!--<li>
+                    <a class="icon news g" href="#promocaoSocial">Promoção Social</a>
+                </li>-->
+                <li>
+                    <a class="icon info g cinza sombra" href="#sobre">Fale Conosco</a>
+                </li>
+                <li class="divider">
+                    Configurações
+                </li>
+                <li>
+                    <a class="icon user g cinza sombra" href="#main">Meus dados</a>
+                </li>
+                <li>
+                    <a class="icon close g vermelho sombra" onclick="FecharApp();">Sair</a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+    </div>
+</body>
+</html>

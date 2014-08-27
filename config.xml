@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.sestsenat.appsig" version="0.1.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>SEST SENAT</name>
+    <description>
+       Aplicativo com informações e destaques relacionadas as unidades do SEST SENAT.
+    </description>
+    <author email="rogercosta@sestsenat.org.br" href="http://sestsenat.org.br">
+        Equipe de desenvolvimento SEST/SENAT 
+   </author>
+  
+  
+  <preference name="phonegap-version"           value="3.5.0" />
+
+  <preference name="Fullscreen" value="true" />
+  <preference name="SplashScreen" value="screen" />
+  <!--<preference name="SplashScreenDelay" value="10000" />-->
+  <preference name="auto-hide-splash-screen" value="false" />
+  <preference name="BackgroundColor" value="0x00000000"/>
+    <content src="index.html" />
+  
+  <access origin="*" />
+  <!-- ICONS -->
+  <!-- Define app icon for each platform. -->
+  <icon src="res/icon.png" />
+  <!-- default 512 pixels -->
+  <platform name="android">
+    <!-- 128 pixels -->
+    <icon src="www/res/icon.png" />
+    <icon src="www/res/icons/android/ldpi.png" qualifier="ldpi" />
+    <!-- 36 pixels -->
+    <icon src="www/res/icons/android/mdpi.png" qualifier="mdpi" />
+    <!-- 48 pixels -->
+    <icon src="www/res/icons/android/hdpi.png" qualifier="hdpi" />
+    <!-- 72 pixels -->
+    <icon src="www/res/icons/android/xhdpi.png" qualifier="xhdpi" />
+    <!-- 96 pixels -->
+    <icon src="www/img/icons/android/xxhdpi.png" density="xxhdpi" />
+    <!-- 144 pixels -->
+    <icon src="www/img/icons/android/xxxhdpi.png" density="xxxhdpi" />
+    <!-- 192 pixels -->
+  </platform>
+  <!--Android-->
+
+  <platform name="ios">
+    <!--IOS-->
+    <icon src="res/icons/ios/icon57.png"   width="57" height="57" />
+    <!-- iPhone & iPod Touch non retina iOS6 -->
+    <icon src="res/icons/ios/icon72.png"  width="72" height="72" />
+    <!-- iPad non retina iOS6 -->
+    <icon src="res/icons/ios/icon76.png"  width="76" height="76" />
+    <!-- iPad non retina iOS7 -->
+    <icon src="res/icons/ios/icon114.png" width="114" height="114" />
+    <!-- iPhone & iPod Touch retina iOS6 -->
+    <icon src="res/icons/ios/icon120.png" width="120" height="120" />
+    <!-- iPhone & iPod Touch retina iOS7 -->
+    <icon src="res/icons/ios/icon144.png" width="144" height="144" />
+    <!-- iPad retina iOS6 -->
+    <icon src="res/icons/ios/icon152.png" width="152" height="152" />
+    <!-- iPad retina iOS7 -->
+  </platform>
+  <!--WINPHONE-->
+  <platform name="wp8">
+    <icon src="res/icons/wp8/icon-62-tile.png" platform="winphone" />
+    <!-- 62 pixels -->
+    <icon src="res/icons/wp8/icon-173-tile.png" platform="winphone"  role="background" />
+    <!-- 173 pixels -->
+  </platform>
+  <!--<icon src="img/icons/winphone/icon.png" platform="winphone"  />-->
+  <!-- 57 pixels -->
+  <!--<icon src="img/icons/winphone/tileicon.png" platform="winphone" role="background" />-->
+  <!-- 72 pixels -->
+  <!-- FIM ICONS-->
+
+</widget>

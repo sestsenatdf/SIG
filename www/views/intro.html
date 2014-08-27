@@ -1,0 +1,22 @@
+﻿<div onload="start();">
+    <a href="#login">
+        <img class="logo" src="./images/logo sestb.png" />
+    </a>
+
+    <progress id="pg" max="6"></progress>
+</div>
+<script type="text/javascript">
+    var progresso = new Number();
+    var maximo = new Number();
+    var progresso = 0;
+    var maximo = 60;
+    function start() {
+        if ((progresso + 1) < maximo) {
+            progresso = progresso + 1;
+            document.getElementById("pg").value = progresso;
+            setTimeout("start();", 1000);
+        }
+    }
+</script>
+
+

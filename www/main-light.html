@@ -1,0 +1,191 @@
+﻿<html>
+<head>
+    <title>Sest Senat</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+
+    <!--<link rel="stylesheet" type="text/css" href="appframework-2.1.0/build/css/af.ui.css" />-->
+    <!--<link href="css/af.ui.sest.css" rel="stylesheet" />-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="appframework-2.1.0/build/css/icons.css" />
+    <!--<link rel="stylesheet" type="text/css" href="css/estilo.css" />-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href="css/form.css" rel="stylesheet" />
+
+    <link href="css/af.ui.sest-light.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" type="text/css" href="css/estilo.css" />-->
+    <link rel="stylesheet" type="text/css" href="css/estilo-light.css" />
+    <link rel="stylesheet" type="text/css" href="css/font/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/font/css/iconsest.css" />
+
+
+    <!--[if lt IE 8]><!-->
+    <link rel="stylesheet" href="css/ie7/ie7.css">
+    <!--<![endif]-->
+    <!--------Scripts AppFramework-------->
+    <script src="cordova.js"></script>
+    <script src="scripts/Jquery/jquery-2.1.1.min.js"></script>
+    <script src="scripts/Jquery/jquery.loadTemplate-1.4.4.js"></script>
+    <script src="scripts/Jquery/jquery-validate.js"></script>
+    <script src="appframework-2.1.0/build/ui/af.ui.jquery.js"></script>
+    <script src="appframework-2.1.0/plugins/af.slidemenu.js"></script>
+    <script type="text/javascript"
+            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDDusZ684WS0g-FFwJV0KKi1eeP6v247KU&sensor=TRUE">
+    </script>
+
+    <script src="scripts/fixBugs.js"></script>
+    <script src="scripts/appSESTSENAT.js"></script>
+    <script src='scripts/app.js'></script>
+    <!--<script src="http://debug-software.intel.com/target/target-script-min.js#b8d51f18-fe38-11e3-8eac-22000a98b3d6"></script>-->
+    <script src="http://debug.build.phonegap.com//target/target-script-min.js#b8d51f18-fe38-11e3-8eac-22000a98b3d6"></script>
+</head>
+<body onload="onLoad()">
+    <div id="afui" class="sest">
+        <!--SplashScreen-->
+        <!--<div id="splashscreen">
+            <div class="splashscreen">
+                <div class="background">
+                    <div class="image1"></div>
+                    <div class="image2"></div>
+                    <div class="image3"></div>
+                    <div class="image4"></div>
+                </div>
+                <div class="logo"><a href="#destaque"><i class="icon-sestsenat icon-10x "></i><progress id="pg" max="6"></progress></a></div>                
+            </div>
+        </div>-->
+
+        <div id="header"></div>
+        <div id="content">
+            <!--login-->
+            <!--<div class="panel" id="login" data-header="none" data-defer="views/login.html" data-footer="none"></div>-->
+            <!--selected="true"-->
+            <!--menu-->
+            <div class="panel " id="menuSest" data-header="none" data-defer="views/menu.html" data-footer="none"></div>
+            <!-- institucional-->
+            <div class="panel " data-defer="views/institucional.html" id="institucional" data-footer="footerSest" data-nav="nav_config"></div>
+            <!-- unidades-->
+            <div class="panel" data-defer="views/unidades.html" id="unidades" data-load="setTitulo" data-footer="footerSest" data-nav="nav_config" style="overflow:hidden"></div>
+            <!--unidade-->
+            <div class="panel" data-defer="views/unidade.html" id="unidade" data-nav="nav_config"></div>
+            <!--unidade-->
+            <div class="panel" id="box-unidade" data-defer="views/box-unidade.html" data-nav="nav_config"></div>
+            <!-- pesquisar-->
+            <div class='panel' data-defer="views/promocaoSocial.html" id="promocaoSocial" data-nav="nav_config" data-footer="footerSest"></div>
+            <!--sobre-->
+            <div class='panel' id="views/sobre.html" data-footer="footerSest" data-nav="nav_config"></div>
+            <!--destaque-->
+            <div class='panel' id="destaque" data-footer="footerSest" data-defer="views/destaque.html" data-nav="nav_config" ></div>
+            <!-- pagina2-->
+            <div class="panel" id="pagina2" data-defer="views/pagina2.html" data-footer="footerSest" data-nav="nav_config"></div>
+            <!-- teste-->
+            <div class="panel" id="teste" data-footer="footerSest">
+                <div class="main-container">
+                    <button id="btTesteAjax" class="btn blue">teste Ajax</button>
+                    <button id="btTesteVersion">teste Version</button>
+                    <button id="btTesteConnection">teste Conexão</button>
+                    <a onclick="showModal('modalFechar');">Abrir Modal</a>
+
+
+                    <a href="tel:6195951212">call to 95951212</a>
+                    <span style="width:50px;height:50px;background:#ffd800;display:block;position:absolute;bottom:0"></span>
+                </div>
+            </div>
+
+            <div class="panel" id="mapa" title="Mapa 1" data-footer="footerSest" style="overflow:hidden">
+                <header>
+                    <!--<a onclick='af.ui.toggleSideMenu();' class='menuButton'></a>-->
+                    <a id="backButton" class="button backButton">Voltar</a>                
+                </header>
+                <div id="myMap"></div>
+            </div>
+            <div class="panel" id="modalFechar">
+                <div style="width:100px;height:100px;background:#fff">
+                    <h3 style="color:#444">Deseja fechar o aplicativo?</h3>
+                    <button> Sair</button>
+                    <button> Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+        <footer id='footerSest'>         
+                <a href="#menuSest" data-tramsition="fade"><i class="icon-line-home icon-2x"></i><p class="icone">Início</p></a>
+                <a href="#unidades"><i class="icon-line-location-map icon-2x"></i><p class="icone">Unidades</p></a>
+                <a href="#destaque"><i class="icon-line-marc icon-2x"></i><p class="icone">Destaque</p></a>
+                <a href="#sobre"><i class="icon-line-info icon-2x"></i><p class="icone">Sobre</p></a>        
+        </footer>
+
+        <!-- first side menu is the default -->
+        <!--<nav id="nav_config" class="menu-sidebar">          
+            <ul class="list">               
+                <li class="divider">
+                    Menu
+                </li>
+                <li>
+                    <a class="icon iconSest icon-newspaper g branco sombra" href="#destaque">Destaques</a>
+                </li>
+                <li>
+                    <a class="icon location g branco sombra" href="#unidades">Unidades</a>
+                </li>
+                <li>
+                    <a class="icon iconSest icon-office g branco sombra" href="#institucional">Institucional</a>
+                </li>          
+                <li>
+                    <a class="icon info g branco sombra" href="#sobre">Fale Conosco</a>
+                </li>
+                <li class="divider">
+                    Configurações
+                </li>
+                <li>
+                    <a class="icon user g branco sombra" href="#main">Meus dados</a>
+                </li>
+                <li>
+                    <a class="icon close g vermelho sombra" onclick="FecharApp();">Sair</a>
+                </li>
+            </ul>
+        </nav>-->
+
+        <!--<aside id="nav_main">            
+            
+            <ul class="list">
+                <li class="divider">
+                    Personalização
+                </li>
+                <li>
+                    <a class="icon pencil g cinza sombra" href="#main">Alterar tema</a>
+                </li>
+                <li class="divider">
+                    Menu
+                </li>
+                <li>
+                    <a class="icon iconSest icon-newspaper g cinza sombra" href="#destaque">Destaques</a>
+                </li>
+                <li>
+                    <a class="icon location g cinza sombra" href="#unidades">Unidades</a>
+                </li>
+                <li>
+                    <a class="icon iconSest icon-office g cinza sombra" href="#institucional">Institucional</a>
+                </li>              
+                <li>
+                    <a class="icon info g cinza sombra" href="#sobre">Fale Conosco</a>
+                </li>
+                <li class="divider">
+                    Configurações
+                </li>
+                <li>
+                    <a class="icon user g cinza sombra" href="#main">Meus dados</a>
+                </li>
+                <li>
+                    <a class="icon close g vermelho sombra" onclick="FecharApp();">Sair</a>
+                </li>
+
+            </ul>
+        </aside>-->
+
+    </div>
+</body>
+</html>

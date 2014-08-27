@@ -1,0 +1,153 @@
+﻿<html>
+<head>
+    <title>Sest Senat</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />   
+
+    <link rel="stylesheet" type="text/css" href="appframework-2.1.0/build/css/af.ui.css" />
+    <!--<link href="appframework-2.1.0/build/css/af.uiSEST.css" rel="stylesheet" />-->
+    <link href="css/af.ui.sest.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="appframework-2.1.0/build/css/icons.css" />
+    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+    <!--[if lt IE 8]><!-->
+    <link rel="stylesheet" href="css/ie7/ie7.css">
+    <!--<![endif]--> 
+    <!--------Scripts AppFramework-------->
+    <script src="cordova.js"></script>
+    <!--<script src='intelxdk.js'></script>-->
+    <script src="scripts/Jquery/jquery-2.1.1.min.js"></script>
+    <script src="scripts/Jquery/jquery.loadTemplate-1.4.4.js"></script>
+    <script src="scripts/Jquery/jquery-validate.js"></script>
+    <!--<script src="appframework-2.1.0/build/appframework.js"></script>-->
+    <script src="appframework-2.1.0/build/ui/af.ui.jquery.js"></script>
+    <script src="appframework-2.1.0/plugins/af.slidemenu.js"></script>
+    <!--<script src="appframework-2.1.0/jq.appframework.js"></script>-->
+    <!--<script src="appframework-2.1.0/build/ui/appframework.ui.js"></script>-->
+    <script type="text/javascript"
+            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDDusZ684WS0g-FFwJV0KKi1eeP6v247KU&sensor=TRUE">
+    </script>
+
+    <!--<script src="appframework-2.1.0/plugins/af.slidemenu.js"></script>-->
+    
+    <!--<script src="phonegap.js"></script>-->
+    <script src="scripts/fixBugs.js"></script>    
+    <script src="scripts/appSESTSENAT.js"></script>
+    <script src='scripts/app.js'></script>
+    <!--<script src="http://debug-software.intel.com/target/target-script-min.js#b8d51f18-fe38-11e3-8eac-22000a98b3d6"></script>-->
+    <script src="http://debug.build.phonegap.com//target/target-script-min.js#b8d51f18-fe38-11e3-8eac-22000a98b3d6"></script>
+</head>
+<body onload="onLoad()">
+    <div id="afui" class="sest-dark">
+        <!--SplashScreen-->
+        <div id="splashscreen">
+            <div class="splashscreen">
+                <a href="#login">
+                    <img class="logo" src="./images/logo sestb.png" />
+                </a>
+                <progress id="pg" max="6"></progress>
+            </div>
+        </div>
+
+        <div id="header"></div>
+        <div id="content">
+            <!--login-->
+            <!--<div class="panel" id="login" data-header="none" data-defer="views/login.html" data-footer="none"></div>-->
+            <!--menu-->            
+            <div class="panel " id="menuSest" data-header="none" data-defer="views/menu.html" data-footer="none" selected="true"></div>
+            <!-- institucional-->
+            <div class="panel " data-defer="views/instintucional.html" id="instintucional" data-footer="footerSest" data-nav="nav_config"></div>
+            <!-- unidades-->
+            <div class="panel" data-defer="views/unidades.html" id="unidades" data-footer="footerSest" data-nav="nav_config" ></div>
+            <!--unidade-->
+            <div class="panel" data-defer="views/unidade.html" id="unidade" data-nav="nav_config" ></div>
+            <!--unidade-->
+            <div class="panel" data-defer="views/box-unidade.html" id="box-unidade" data-nav="nav_config" ></div>
+            <!-- pesquisar-->
+            <div class='panel' data-defer="views/promocaoSocial.html" id="promocaoSocial" data-footer="footerSest" data-nav="nav_config" ></div>
+            <!--sobre-->
+            <div class='panel' data-defer="views/sobre.html" id="sobre" data-footer="footerSest" data-nav="nav_config"></div>
+            <!--destaque-->
+            <div class='panel' id="destaque" data-defer="views/destaque.html" data-footer="footerSest" data-nav="nav_config"></div>
+            <!-- pagina2-->
+            <div class="panel" id="pagina2" data-defer="views/pagina2.html" data-footer="footerSest" data-nav="nav_config" ></div>
+            <!-- teste-->
+            <div class="panel" id="teste"  data-footer="footerSest">
+                <button id="btTesteAjax" class="btn blue">teste Ajax</button>
+                <button id="btTesteVersion">teste Version</button>
+                <button id="btTesteConnection">teste Conexão</button>
+                
+                <a href="tel:6195951212" >call to 95951212</a>
+                <span style="width:50px;height:50px;background:#ffd800;display:block;position:absolute;bottom:0"></span>
+            </div>
+
+            <div class="panel" id="mapa" data-header="none" data-footer="footerSest" style="overflow:hidden" js-scrolling="false">
+                <div id="myMap"></div>                
+            </div>            
+        </div>
+
+        <footer id='footerSest'>
+            <a href="#menuSest" data-transition="pop" class="icon iconSest icon-home2">
+               Home
+            </a>
+            <a href="#unidades" data-transition="flip" class="icon iconSest icon-location ">
+              Unidades
+            </a>
+            <a href="#destaque" data-transition="slideup" class="icon iconSest icon-newspaper ">
+                Destaque
+                <span class="af-badge">3</span>
+            </a>
+            <a href="#sobre" data-transition="slidedown" class="icon iconSest icon-info ">
+                Fale conosco
+            </a>
+        </footer>
+
+        <!-- first side menu is the default -->
+        <nav id="nav_config">
+            <header>Teste</header>
+           <ul class="list">
+                <li class="divider">
+                    Configurações         
+                </li>                
+                <li>
+                    <a class="icon user g" href="#main">Meus dados</a>
+                </li>
+                <li>
+                    <a class="icon close g" href="#main">Sair</a>
+                </li>
+             
+            </ul>
+        </nav>
+
+        <aside id="nav_main">
+            <!--<div class='title-nav'>Home</div>-->
+
+            <!--Right Side menu-->
+            <ul class="list">
+                <li class="divider">
+                    Configurações         
+                </li>                
+                <li>
+                    <a class="icon user g" href="#main">Meus dados</a>
+                </li>
+                <li>
+                    <a class="icon close g" href="#main">Sair</a>
+                </li>
+                <li class="divider">
+                    Personalização
+                </li> 
+                <li>
+                    <a class="icon pencil g" href="#main">Alterar tema</a>
+                </li>
+            </ul>
+
+        </aside>
+
+    </div>
+</body>
+</html>

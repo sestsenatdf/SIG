@@ -1,0 +1,85 @@
+﻿<header>
+    <a onclick='af.ui.toggleSideMenu();' class='menuButton'></a>
+    <a id="backButton" class="button backButton">Voltar</a>
+    <h1>Brasília</h1>
+</header>
+
+<main>
+    <div class="main-container">
+        <div id="containerUnidade" style="margin-top:10px"></div>
+        <div id="servicos">
+            <ul class="tabServicos">
+                <li class="ativo" data-for="servicoSaude">
+                    <p>
+                        <i class=" icon-estetoscopio icon-2x "></i>
+                        Saúde
+                    </p>
+                </li>
+                <li data-for="servicoCursos">
+                    <p>
+                        <i class="icon-palestra icon-2x"></i>
+                        Cursos
+                    </p>
+                </li>
+                <li data-for="servicoLazer">
+                    <p>
+                        <i class="icon-esporte icon-2x"></i>
+                        Esporte e Lazer
+                    </p>
+                </li>
+                <li data-for="servicoOdontologia">
+                    <p>
+                        <i class="icon-dente icon-2x"></i>
+                        <!--Área<br />Odontologica-->
+                        Odontologia
+                    </p>
+                </li>
+            </ul>
+            <div class="conteudoServico">
+                <div id="servicoSaude"></div>
+                <div id="servicoCursos" style="display:none"></div>
+                <div id="servicoLazer" style="display:none"></div>
+                <div id="servicoOdontologia" style="display:none"></div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <!--<a href="#" data-transition="fade">
+        <i class="icon icon-phone g" ></i>
+        <p class="icone">Chamar</p>
+    </a>-->
+    <a href="#mapa" data-transition="fade">
+        <i class="icon icon-location g"></i>
+        <p class="icone">Chegar aqui</p>
+    </a>
+</footer>
+
+<div id="containerTmpl"></div>
+<div id="unidadeTmpl" style="display:none">
+    <div style="float:left;" class="sestPicture unidade">
+        <img data-src="imagem" style="width:100%" />
+        <!--<img data-src="" data-alt="Nome" data-link-wrap="authorPicture" />-->
+    </div>
+    <div>
+        <h3>Endereço</h3>
+        <p>
+            <span data-content="Endereco"></span><br />
+            CEP: <span data-content="CEP"></span>
+        </p>
+        <h3>Contatos</h3>
+        <p>
+            Telefone: <span data-content="Telefone"></span><br />
+            Fax: <span data-content="Fax"></span><br />
+            Email: <span data-content="Email"></span>
+        </p>
+        <h3>Horário de Funcionamento</h3>
+        <p>
+            <span data-content="HorarioFuncionamento"></span>
+        </p>
+        <h3>Sábado e domingo</h3>
+        <p>
+            Consulte a programação da unidade por telefone
+        </p>
+    </div>
+</div>

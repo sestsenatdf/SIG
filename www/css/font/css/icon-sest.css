@@ -1,0 +1,55 @@
+@font-face {
+	font-family: 'sest';
+	src:url('../fonts/sest.eot?-yaky98');
+	src:url('../fonts/sest.eot?#iefix-yaky98') format('embedded-opentype'),
+		url('../fonts/sest.woff?-yaky98') format('woff'),
+		url('../fonts/sest.ttf?-yaky98') format('truetype'),
+		url('../fonts/sest.svg?-yaky98#sest') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+[class^="sest-"], [class*=" sest-"] {
+	font-family: 'sest';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.size-2x {
+  font-size: 2em;
+}
+.size-3x {
+  font-size: 3em;
+}
+.size-4x {
+  font-size: 4em;
+}
+.size-5x {
+  font-size: 5em;
+}
+
+.sest-line-info:before {
+	content: "\e600";
+}
+.sest-line-ret:before {
+	content: "\e601";
+}
+.sest-line-marc:before {
+	content: "\e602";
+}
+.sest-line-location-map:before {
+	content: "\e603";
+}
+.sest-line-home:before {
+	content: "\e604";
+}

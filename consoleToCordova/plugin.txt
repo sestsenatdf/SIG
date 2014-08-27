@@ -1,0 +1,12 @@
+﻿
+//Comando para add plugin via CLI
+plugin add <com.examplodominio.nomeplugin>
+
+//Plugins instalados até o momento
+
+plugin add org.apache.cordorva.device
+plugin add org.apache.cordorva.dialogs
+plugin add org.apache.cordorva.geolocation
+plugin add org.apache.cordorva.splashscreen
+plugin add org.apache.cordorva.statusbar
+plugin add org.apache.cordorva.vibration
