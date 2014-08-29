@@ -19,12 +19,12 @@ $.ui.autoLaunch = true;
 $.ui.backButtonText = "Voltar";
 $.ui.openLinksNewTab = false;
 $.ui.splitview = false;
+$.feat.nativeTouchScroll = false;
 
-
-if ($.os.ios) {
-    $.feat.nativeTouchScroll = true;
-    $("#afui").addClass("sest-ios");
-}
+//if ($.os.ios) {
+//    $.feat.nativeTouchScroll = true;
+//    $("#afui").addClass("sest-ios");
+//}
 
 
 
@@ -81,12 +81,34 @@ $.ui.ready(function () {
     //$.ui.loadContent("#destaque", false, false, "fade");
     $.ui.blockPageScroll();
  
-                       mySwiper = new Swiper('.swiper-container', {
-                          pagination: '.pagination',
-                          paginationClickable: true,
-                          shortSwipes: true
-                      })
-                
+    mySwiper = new Swiper('.swiper-container', {
+        simulateTouch:false,
+        pagination: '.pagination',
+        paginationClickable: true,
+        shortSwipes: true,
+        autoResize: true,
+        resizeReInit: true,
+        //touchRatio: 10,
+        useCSS3Transforms:true,
+        //freeModeFluid: true,
+        //momentumRatio: 10,
+        //onTouchEnd:function(){alert("erro")}
+        //scrollContainer: true
+        //freeModeFluid: true,
+        //momentumRatio:2
+    });
+    
+    //alert(JSON.stringify(mySwiper.support));
+
+    //alert(JSON.stringify(mySwiper));
+    
+    $("#testeswiper").css("padding", "0 !important");
+    $("#testeswiper").on("loadpanel", function () {
+        //alert("teste");
+        mySwiper.resizeFix();
+        //mySwiper.reInit();
+    });
+
     Login();
     EnviarMensagem();
     SelecionaUnidade();
