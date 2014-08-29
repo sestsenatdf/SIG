@@ -20,6 +20,7 @@ $.ui.backButtonText = "Voltar";
 $.ui.openLinksNewTab = false;
 $.ui.splitview = false;
 
+
 if ($.os.ios) {
     $.feat.nativeTouchScroll = true;
     $("#afui").addClass("sest-ios");
@@ -73,12 +74,19 @@ function buscarDestaque() {
         fimLoading();
     }, 2000);
 }
+var mySwiper;
 $.ui.ready(function () {
     $.ui.loadContent("#menuSest", false, false, "fade");
     //buscarDestaque();
     //$.ui.loadContent("#destaque", false, false, "fade");
     $.ui.blockPageScroll();
-
+ 
+                       mySwiper = new Swiper('.swiper-container', {
+                          pagination: '.pagination',
+                          paginationClickable: true,
+                          shortSwipes: true
+                      })
+                
     Login();
     EnviarMensagem();
     SelecionaUnidade();
