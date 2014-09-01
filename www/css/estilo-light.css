@@ -470,9 +470,13 @@ span.unidade-seta {
     color: rgba(0,58,114,1);
 }
 
+.sestPicture{
+     background: rgb(245,245,245) url(../images/ajax-loader.gif) center no-repeat;
+     border:1px solid rgb(230,230,230);
 
-.sestPicture.unidade {
-    background: rgba(0,0,0,0.1);
+}
+
+.sestPicture.unidade {   
     width: 150px;
     height: 111px;
     margin-right: 10px;
@@ -591,10 +595,12 @@ span.unidade-seta {
     }
 
 .conteudoServico {
-    background: rgb(248,248,248);
+    background: rgb(245,245,245);
+    border-radius:5px;
     color: #345FA0;
-    padding: 10px;
-    /*border: 1px solid #e0e0e0;*/
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-top-left-radius: 0;
     margin-top: -2px;
     max-height: 300px;
     margin-bottom: 10px;
@@ -606,9 +612,11 @@ span.unidade-seta {
     }
 
 #servicos li.ativo {
-    background: rgb(248,248,248);
-    /*border: 1px solid #e0e0e0;*/
+    background: rgb(245,245,245);
+    border: 1px solid #e0e0e0;
     border-bottom: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .destaque h1 {
