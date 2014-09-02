@@ -903,7 +903,7 @@ var Swiper = function (selector, params) {
                 bind(eventTarget, 'mousedown', onTouchStart);
                 bind(document, 'mousemove', onTouchMove);
                 bind(document, 'mouseup', onTouchEnd);
-                bind(eventTarget, 'touchstart', onTouchStart);
+                bind(eventTarget,'touchstart', onTouchStart);
                 bind(document, 'touchmove', onTouchMove);
                 bind(document, 'touchend', onTouchEnd);
             }
@@ -980,9 +980,9 @@ var Swiper = function (selector, params) {
                 unbind(eventTarget, 'mousedown', onTouchStart);
                 unbind(document, 'mousemove', onTouchMove);
                 unbind(document, 'mouseup', onTouchEnd);
-                unbind(eventTarget, 'touchstart', onTouchStart);
-                unbind(document, 'touchmove', onTouchMove);
-                unbind(document, 'touchend', onTouchEnd);
+                bind(eventTarget, 'touchstart', onTouchStart);
+                bind(document, 'touchmove', onTouchMove);
+                bind(document, 'touchend', onTouchEnd);
             }
         }
         else {

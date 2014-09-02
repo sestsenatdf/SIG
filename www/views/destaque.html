@@ -1,33 +1,85 @@
 ﻿<header>
-    <a onclick='af.ui.toggleSideMenu();' class='menuButton'></a>
+    <a onclick='af.ui.toggleAsideMenu();' class='menuButton' style="display:block;float:right"></a>
     <a id="backButton" class="button backButton">Voltar</a>
-    <h1>Destaque</h1>
+    <h1>Destaques</h1>
 </header>
 <main>
     <div class="main-container">
-      <div class="swiper-container">
-      	<div class="swiper-wrapper">
-      		<div class="swiper-slide"> 
-        <div class="content-slide">
-            <p class="title">Slide with HTML</p>
-            <p>You can put any HTML inside of slide with any layout, not only images, even another Swiper!</p>
-          </div>
-      		 </div>
-      		<div class="swiper-slide">  
-         <div class="content-slide">
-            <p class="title">2</p>
-            <p>2</p>
-          </div>
-         </div>
-      		<div class="swiper-slide">
-          <div class="content-slide">
-            <p class="title">2</p>
-            <p>2</p>
-          </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide blue-slide">
+                    <div class="title">Slide 1</div>
+                </div>
+                <div class="swiper-slide red-slide">
+                    <div class="title">Slide 2</div>
+                </div>
+                <div class="swiper-slide orange-slide">
+                    <div class="title">Slide 3</div>
+                </div>
+            </div>
+            <div class="pagination"></div>
         </div>
-      </div>
-      </div>
-       <div class="pagination"></div>
-        <div class="box-destaque"></div>
+
+        <div class="box-destaque">
+            <div class="destaque">
+                <div class="destaque-container">
+                    <div class="sestPicture picture-destaque">
+                        <img src="http://www.sestsenat.org.br/Arquivos%20SEST%20SENAT/Not%C3%ADcias/2014/Interna%20site%20SEST%20SENAT%20-%20320x181.jpg"
+                             style="/* height: 100%; */ width: 100%;border-radius: 3px; /* display: none; */" class="">
+                    </div>
+                    <p class="" style="color: #333;">
+                        Sest Senat comemora 20 anos com shows de duplas sertanejas
+                    </p>
+                </div>
+                <hr />
+                <div class="footer-destaque">
+                    <span class="" style="font-size: 0.9em;float: left;font-family: 'Open Sans Condensed', sans-serif !important;">01/09/2014</span>
+                    <span class="icon-curtir"></span>
+                    <span class="fa-comment-o" style="font-family:'fontawesome'"></span>
+                </div>
+            </div>
+            <div class="destaque">
+                <div class="destaque-container">
+                    <div class="sestPicture picture-destaque">                        
+                        <img src="http://www.sestsenat.org.br/Arquivos%20SEST%20SENAT/Not%C3%ADcias/2014/melhormotorista.jpg"
+                             style="/* height: 100%; */ width: 100%;border-radius: 3px; /* display: none; */" class="">
+                    </div>
+                    <p class="">Nota Oficial Sobre o programa Primeira Habitação</p>
+                </div> <hr>
+                <div class="footer-destaque">
+                    <span style="font-size: 0.9em;float: left;font-family: Open Sans Condensed, sans-serif !important;">29/04/2014</span>
+                    <span class="icon-curtir"></span>
+                    <span class="fa-comment-o" style="font-family:fontawesome;margin-right: 5px;"></span>
+                </div>
+            </div>
+            <div class="destaque">
+                <div class="destaque-container">
+                    <div class="sestPicture picture-destaque">                        
+                        <img src="http://www.sestsenat.org.br/Arquivos%20SEST%20SENAT/Destaques/banner_intranet_palestras_2.jpg"
+                             style="/* height: 100%; */ width: 100%;border-radius: 3px; /* display: none; */" class="">
+                    </div>
+                    <p class="">Conheça os temas que promovem a consciência crítica do trabalhador</p>
+                </div> <hr>
+                <div class="footer-destaque">
+                    <span style="font-size: 0.9em;float: left;font-family: Open Sans Condensed, sans-serif !important;">26/08/2014</span>
+                    <span class="icon-curtir"></span>
+                    <span class="fa-comment-o" style="font-family:fontawesome;margin-right: 5px;"></span>
+                </div>
+            </div>
+            <div class="destaque">
+                <div class="destaque-container">
+                    <div class="sestPicture picture-destaque">                        
+                        <img src="http://www.sestsenat.org.br/Arquivos%20SEST%20SENAT/Not%C3%ADcias/2014/empresas.png"
+                             style="/* height: 100%; */ width: 100%;border-radius: 3px; /* display: none; */" class="">
+                    </div>
+                    <p class="">Sest Senat convida instiuições para serem parceiras</p>
+                </div> <hr> 
+                <div class="footer-destaque">
+                    <span style="font-size: 0.9em;float: left;font-family: Open Sans Condensed, sans-serif !important;">24/08/2014</span>
+                    <span class="icon-curtir"></span>
+                    <span class="fa-comment-o" style="font-family:fontawesome;margin-right: 5px;"></span>
+                </div>
+            </div>
+        </div>
     </div>
 </main>

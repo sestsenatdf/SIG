@@ -1,4 +1,4 @@
-/*! intel-appframework - v2.1.0 - 2014-03-18 */
+﻿/*! intel-appframework - v2.1.0 - 2014-03-18 */
 
 /**********************************************************
     GENERAL UI ELEMENTS
@@ -163,9 +163,20 @@ body {
     /* This is masthead bar that appears at the top of the UI */
 
     #afui.sest-ios .header {
-        height: 54px !important;
-        padding-top: 12px !important;
+        position: relative;
+        overflow: hidden;
+        display: block;
+        z-index: 250;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;   
+        left: 0;
+        right: 0;
+        height: 74px;
+        padding-top: 30px;
     }
+
+
+
 
     #afui .header h1 {
         position: absolute;
@@ -3167,7 +3178,7 @@ body {
 /* border rgba(158,158,158,255) */
 
 #afui.sest {
-    font-family: 'HelveticaNeue', 'Helvetica Neue',Helvetica, Arial, sans-serif;
+    /*font-family: 'HelveticaNeue', 'Helvetica Neue',Helvetica, Arial, sans-serif;*/
 }
 
     #afui.sest .header {
