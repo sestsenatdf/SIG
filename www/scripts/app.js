@@ -13,6 +13,7 @@
 // http://go.microsoft.com/fwlink/?LinkID=397704
 // To debug code on page load in Ripple or on Android devices/emulators: launch your app, set breakpoints, 
 // and then run "window.location.reload()" in the JavaScript Console.
+var mySwiper;
 
 $.ui.useOSThemes = false;
 $.ui.autoLaunch = true;
@@ -21,14 +22,13 @@ $.ui.openLinksNewTab = false;
 $.ui.splitview = false;
 $.ui.slideSideMenu = false;
 
+
 //$.feat.nativeTouchScroll = true;
-  
-if ($.os.ios) {
+
+if ($.os.ios || $.os.ios7 || $.os.ipad) {
     $.feat.nativeTouchScroll = true;
     $("#afui").addClass("sest-ios");
 }
-
-
 
 var urlExterno = "http://extranet.sestsenat.org.br/sig";
 var urlLocalhost = "http://extranet.sestsenat.org.br/sig";
@@ -68,14 +68,14 @@ function buscarDestaque() {
     setTimeout(function () {
         var destaques = "";
         for (var i = 0; i < 4; i++) {
-            destaques += "<div class='destaque'> "+
-                "<div class='destaque-container'>"+
+            destaques += "<div class='destaque'> " +
+                "<div class='destaque-container'>" +
                     "<div class='sestPicture picture-destaque'></div>" +
                     "<p>Lorem ipsum dolor sit amet, duo minim putant option et, qui in falli persius adolescens, solet evertitur eos ei. Legere volutpat tractatos in mel, veritus nominavi mel id. In duo modus impetus neglegentur.</p>" +
-                "</div> <hr />"+
-                "<div class='footer-destaque'>"+
+                "</div> <hr />" +
+                "<div class='footer-destaque'>" +
                     "<span  style='font-size: 0.9em;float: left;font-family: Open Sans Condensed, sans-serif !important;'>01/09/2014</span>" +
-                    "<span class='icon-curtir'></span>"+
+                    "<span class='icon-curtir'></span>" +
                     "<span class='fa-comment-o' style='font-family:fontawesome;margin-right: 5px;'></span>" +
                 '</div></div>';
         }
@@ -83,11 +83,11 @@ function buscarDestaque() {
         fimLoading();
     }, 2000);
 }
-var mySwiper;
+
 $.ui.ready(function () {
-    $.ui.loadContent("#menuSest", false, false, "fade");
+    //$.ui.loadContent("#menuSest", false, false, "fade");
     //buscarDestaque();
-    //$.ui.loadContent("#destaque", false, false, "fade");
+    $.ui.loadContent("#destaque", false, false, "fade");
     //$.ui.blockPageScroll();
     $.ui.disableRightSideMenu();
 
@@ -95,32 +95,53 @@ $.ui.ready(function () {
         $.ui.setRightSideMenuWidth("300");
     }
 
-
-    mySwiper = new Swiper('.swiper-container', {
-        simulateTouch:false,
-        pagination: '.pagination',
-        paginationClickable: true,
-        shortSwipes: true,
-        autoResize: true,
-        resizeReInit: true,
-        //touchRatio: 10,
-        useCSS3Transforms:true,
-        //freeModeFluid: true,
-        //momentumRatio: 10,
-        //onTouchEnd:function(){alert("erro")}
-        //scrollContainer: true
-        //freeModeFluid: true,
-        //momentumRatio:2
-    });
-  
-    $("#testeswiper,#destaque").on("loadpanel", function () {
-        mySwiper.resizeFix();
-    });
-
     Login();
     EnviarMensagem();
     SelecionaUnidade();
 
+    EventosDestaque();
+
+    EventosTeste();
+
+
+
+    $("#mapa").on("unloadpanel", function () {
+        //$.ui.enableSideMenu();
+        //$.ui.enableRightSideMenu();
+    });
+
+    AdicionarValidacao();
+
+    $("#sobre").on("unloadpanel", function () {
+        LimparDados("#sobre");
+        LimparValidacoes("#formEmail");
+    });
+
+    $("#mapa").on("loadpanel", function (data) {
+        //$.ui.disableSplitView();
+        //$.ui.disableRightSideMenu();
+        //$.ui.disableLeftSideMenu();
+        setTimeout(function () {
+            google.maps.event.trigger(map, "resize");
+            centralizaMapa();
+        }, 200);
+    });
+
+    $(".tabServicos").on("click", "li", function () {
+        if (!$(this).hasClass("ativo")) {
+            $(".conteudoServico div").hide();
+            $("#" + $(this).attr("data-for")).parent().show();
+            $("#" + $(this).attr("data-for")).fadeIn("fast");
+            $(".tabServicos li").removeClass("ativo");
+            $(this).addClass("ativo");
+            $.ui.scrollToBottom("box-unidade", "400");
+        }
+    });
+});
+
+
+function EventosDestaque() {
+    //Implementa o carregamento no fim do scroller
     var myScroller = $.ui.scrollingDivs['destaque'];
     myScroller.addInfinite();
 
@@ -140,89 +161,73 @@ $.ui.ready(function () {
         self.clearInfinite();
     });
 
+    //Banner Rotativo
+    mySwiper = new Swiper('.swiper-container', {
+        simulateTouch: false,
+        pagination: '.pagination',
+        paginationClickable: true,
+        shortSwipes: true,
+        autoResize: true,
+        resizeReInit: true,
+        //touchRatio: 10,
+        useCSS3Transforms: true,
+        //freeModeFluid: true,
+        //momentumRatio: 10,
+        //onTouchEnd:function(){alert("erro")}
+        //scrollContainer: true
+        //freeModeFluid: true,
+        //momentumRatio:2
+    });
+
+    //Resolve Bug Redimencionando
     $("#destaque").on("loadpanel", function () {
+        mySwiper.resizeFix();
         $.ui.enableRightSideMenu();
         if ($("div.destaque").length == 0)
             buscarDestaque();
     });
+
     $("#destaque").on("unloadpanel", function () {
         $.ui.disableRightSideMenu();
     });
 
-    $("#btTesteAjax").click(function () {
-        alert("clickou");
-        var url = (window.cordova ? urlExterno : urlLocalhost) + "/api/unidade/PesquisarPorUf";
-        listaUnidade(url, "SP");
-    });
-
-    $("#btTesteVersion").click(function () {
-        notificacao.vibrate(200);
-        notificacao.beep(2);
-        alert(
-        "Name: " + device.name + "  \n " +
-        "Cordova: " + device.cordova + " \n " +
-        "Plataforma: " + device.platform + " \n " +
-        "System Version: " + device.version + " \n ");
-
-    });
-
-    $("#btTesteConnection").click(function () {
-        /*checkConnection();*/
-        console.log("add offline");
-        document.addEventListener("offline", checkConnection, false);
-        console.log("add online");
-        document.addEventListener("online", checkConnection, false);
-    });
-
-    $("#mapa").on("unloadpanel", function () {
-        //$.ui.enableSideMenu();
-        //$.ui.enableRightSideMenu();
-    });
-
-    $("#sobre").on("loadpanel", function () {
-        LimparDados("#sobre");
-        LimparValidacoes("#formEmail");
-
-        $("#formEmail").validate();
-        $("#emailFrom").rules("add", {
-            required: true, email: true, messages: {
-                required: "E-mail é Obrigatório",
-                email: "Informe um e-mail válido"
-            }
-        });
-        $("#nomeFrom").rules("add", {
-            required: true, messages: {
-                required: "Nome é Obrigatório",
-            }
-        });
-        $("#emailBody").rules("add", {
-            required: true, messages: {
-                required: "Mensagem é Obrigatório",
-            }
-        });
-    });
-
-    $("#mapa").on("loadpanel", function (data) {
-        //$.ui.disableSplitView();
-        //$.ui.disableRightSideMenu();
-        //$.ui.disableLeftSideMenu();
-        setTimeout(function () {
-            google.maps.event.trigger(map, "resize");
-            centralizaMapa();
-        }, 200);
-    });
-
-    $(".tabServicos li").click(function () {
-        if (!$(this).hasClass("ativo")) {
-            $(".conteudoServico div").hide();
-            $("#" + $(this).attr("data-for")).parent().show();
-            $("#" + $(this).attr("data-for")).fadeIn("fast");
-            $(".tabServicos li").removeClass("ativo");
-            $(this).addClass("ativo");
-            $.ui.scrollToBottom("box-unidade", "400");
+    //swipeLeft
+    //swipeRight
+    //swipeUp
+    //swipeDown
+    $("#destaque").on("swipeLeft swipeRight", ".destaque", function (evento,objeto) {
+        console.log("swipe");
+        var rotY;
+        if (evento.type == "swipeLeft") {
+            rotY= "-360deg";
+        } else {
+            rotY= "360deg";
         }
+       
+        var destaque = $(this);
+        $(this).css3Animate({
+            //x: 20,
+            //y: 30,     
+            origin: "50% 50%",
+            scale: "1",
+            //opacity: "1",
+            rotateY: rotY,
+            //rotateX: "360deg",
+            //skewX: 50,
+            time: "1000ms",
+            //previous: true,          
+            callback: function () {
+                destaque.toggleClass("virado");
+                destaque.attr("style","");
+            }
+        });
     });
-});
+
+    $("#destaque").on("click", ".destaque", function () {
+        $.ui.showModal('modalDestaque',"pop");
+    });
+}
+var divTeste;
 
 function FecharApp() {
     notificacao.confirm("Deseja realmente fechar o aplicativo?", function (button) {
@@ -315,12 +320,12 @@ function onConfirm(button) {
 }
 
 function SelecionaUnidade() {
-    $("a[href='#unidades']").bind("click", function () {
-        if (!$("#unidades:visible").length) {
-            LimparDados("#unidades");
-            $("#qntUnidade").empty();
-            $("#listaUnidade").empty();
-        }
+    $("#unidades").on("unloadpanel", function () {
+        //if (!$("#unidades:visible").length) {
+        LimparDados("#unidades");
+        $("#qntUnidade").empty();
+        $("#listaUnidade").empty();
+        //}
     });
 
     $("#slUF").change(function () {
@@ -330,7 +335,7 @@ function SelecionaUnidade() {
             var boxHeight = ($("#unidades").height() - $("#filtroUnidade").height()) - 35;/* - 285;*/
             $("#boxLista").height(boxHeight);
             $("#boxLista").scroller().scrollToTop()
-            
+
             /*Bind evento de unidade*/
             BindUnidade();
         },
@@ -383,7 +388,8 @@ function listaUnidade(url, uf, callbackSucesso, callbackErro) {
 }
 
 function BindUnidade() {
-    $("li.btUnidade").bind("click", function () {
+    $("#boxLista").on("click", "li.btUnidade", function () {
+        inicioLoading("Carregando informações sobre a unidade...");
         $(".tabServicos li:first").click();
         var id = $(arguments[0].currentTarget).attr("data-id");
         var url = (window.cordova ? urlExterno : urlLocalhost) + "/api/unidade/Recuperar";
@@ -394,6 +400,7 @@ function BindUnidade() {
             dataType: "json",
             crossDomain: true,
             success: function (data) {
+                fimLoading();
                 data.imagem = "http://www.sestsenat.org.br/PublishingImages/Unidades/" + id + ".jpg";
                 $("#containerTmpl").html($("#unidadeTmpl").html());
                 $("#containerUnidade").loadTemplate("#containerTmpl", data, {
@@ -557,3 +564,48 @@ function LimparDados(seletor) {
 
 
 
+function EventosTeste() {
+    $("#btTesteAjax").click(function () {
+        alert("clickou");
+        var url = (window.cordova ? urlExterno : urlLocalhost) + "/api/unidade/PesquisarPorUf";
+        listaUnidade(url, "SP");
+    });
+
+    $("#btTesteVersion").click(function () {
+        notificacao.vibrate(200);
+        notificacao.beep(2);
+        alert(
+        "Name: " + device.name + "  \n " +
+        "Cordova: " + device.cordova + " \n " +
+        "Plataforma: " + device.platform + " \n " +
+        "System Version: " + device.version + " \n ");
+
+    });
+
+    $("#btTesteConnection").click(function () {
+        /*checkConnection();*/
+        console.log("add offline");
+        document.addEventListener("offline", checkConnection, false);
+        console.log("add online");
+        document.addEventListener("online", checkConnection, false);
+    });
+}
+function AdicionarValidacao() {
+    $("#formEmail").validate();
+    $("#emailFrom").rules("add", {
+        required: true, email: true, messages: {
+            required: "E-mail é Obrigatório",
+            email: "Informe um e-mail válido"
+        }
+    });
+    $("#nomeFrom").rules("add", {
+        required: true, messages: {
+            required: "Nome é Obrigatório",
+        }
+    });
+    $("#emailBody").rules("add", {
+        required: true, messages: {
+            required: "Mensagem é Obrigatório",
+        }
+    });
+}
