@@ -68,18 +68,24 @@ function buscarDestaque() {
     setTimeout(function () {
         var destaques = "";
         for (var i = 0; i < 4; i++) {
-            destaques += "<div class='destaque'> " +
-                "<div class='destaque-container'>" +
-                    "<div class='sestPicture picture-destaque'></div>" +
-                    "<p>Lorem ipsum dolor sit amet, duo minim putant option et, qui in falli persius adolescens, solet evertitur eos ei. Legere volutpat tractatos in mel, veritus nominavi mel id. In duo modus impetus neglegentur.</p>" +
-                "</div> <hr />" +
-                "<div class='footer-destaque'>" +
-                    "<span  style='font-size: 0.9em;float: left;font-family: Open Sans Condensed, sans-serif !important;'>01/09/2014</span>" +
-                    "<span class='icon-curtir'></span>" +
-                    "<span class='fa-comment-o' style='font-family:fontawesome;margin-right: 5px;'></span>" +
-                '</div></div>';
+            destaques +=
+                "<div class='destaque'> " +
+                    "<div class='destaque-container'>" +
+                         "<div class='destaque-front'>" +
+                             "<div class='sestPicture picture-destaque'></div>" +
+                             "<p>Lorem ipsum dolor sit amet, duo minim putant option et, qui in falli persius adolescens, solet evertitur eos ei. Legere volutpat tractatos in mel, veritus nominavi mel id. In duo modus impetus neglegentur.</p>" +
+                         "</div>" +
+                         " <div class='destaque-behind'></div>" +
+                    "</div>" +
+                    "<hr />" +
+                    "<div class='footer-destaque'>" +
+                        "<span  style='font-size: 0.9em;float: left;font-family: Open Sans Condensed, sans-serif !important;'>01/09/2014</span>" +
+                        "<span class='icon-curtir'></span>" +
+                        "<span class='fa-comment-o' style='font-family:fontawesome;margin-right: 5px;'></span>" +
+                    "</div>"+
+                "</div>";
         }
-        $("div.box-destaque").append(destaques);
+        $(destaques).insertBefore("div.box-destaque .clear-both");
         fimLoading();
     }, 2000);
 }
@@ -92,7 +98,7 @@ $.ui.ready(function () {
     $.ui.disableRightSideMenu();
 
     if ($.os.ipad || $("body").width() > 500) {
-        $.ui.setRightSideMenuWidth("300");
+        $.ui.setSideMenuWidth("300");
     }
 
     Login();
@@ -169,6 +175,8 @@ function EventosDestaque() {
         shortSwipes: true,
         autoResize: true,
         resizeReInit: true,
+        autoplay: 5000,
+        //slidesPerView: 2,
         //touchRatio: 10,
         useCSS3Transforms: true,
         //freeModeFluid: true,
@@ -182,7 +190,7 @@ function EventosDestaque() {
     //Resolve Bug Redimencionando
     $("#destaque").on("loadpanel", function () {
         mySwiper.resizeFix();
-        $.ui.enableRightSideMenu();
+        $.ui.enableLeftSideMenu();
         if ($("div.destaque").length == 0)
             buscarDestaque();
     });
@@ -195,36 +203,38 @@ function EventosDestaque() {
     //swipeRight
     //swipeUp
     //swipeDown
-    $("#destaque").on("swipeLeft swipeRight", ".destaque", function (evento,objeto) {
+    $("#destaque").on("swipeLeft swipeRight", ".destaque", function (evento, objeto) {
         console.log("swipe");
         var rotY;
         if (evento.type == "swipeLeft") {
-            rotY= "-360deg";
+            rotY = "-360deg";
         } else {
-            rotY= "360deg";
+            rotY = "360deg";
         }
-       
+
         var destaque = $(this);
+        setTimeout(function () { destaque.toggleClass("box-behind"); }, 250);
         $(this).css3Animate({
             //x: 20,
             //y: 30,     
-            origin: "50% 50%",
+            //origin: "50% 50%",
             scale: "1",
-            //opacity: "1",
+            opacity: "1",
             rotateY: rotY,
             //rotateX: "360deg",
             //skewX: 50,
-            time: "1000ms",
+            time: "500ms",
             //previous: true,          
             callback: function () {
-                destaque.toggleClass("virado");
-                destaque.attr("style","");
+
+                destaque.attr("style", "");
             }
         });
     });
 
     $("#destaque").on("click", ".destaque", function () {
-        $.ui.showModal('modalDestaque',"pop");
+        if (!$(this).hasClass("box-behind"))
+            $.ui.showModal('modalDestaque', "pop");
     });
 }
 var divTeste;

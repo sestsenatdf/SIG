@@ -81,7 +81,7 @@
             <!--sobre-->
             <div class='panel' id="sobre" data-defer="views/sobre.html" data-footer="footerSest" data-nav="nav_config"></div>
             <!--destaque-->
-            <div class='panel' id="destaque" data-footer="footerSest" data-defer="views/destaque.html" data-aside="nav_destaque"></div>
+            <div class='panel' id="destaque" data-footer="footerSest" data-defer="views/destaque.html" data-nav="nav_destaque"></div>
             <!-- saude-->
             <div class="panel" id="saude" data-defer="views/saude.html" data-footer="footerSest" data-nav="nav_config"></div>
             <!-- lazer-->
@@ -246,8 +246,26 @@
             </ul>
         </aside>-->
 
-        <aside id="nav_destaque">
+        <nav id="nav_destaque">
             <ul class="list">
+                <li class="divider">
+                    Menu
+                </li>
+                <!--<li>
+                    <a class="icon iconSest icon-newspaper g branco sombra" href="#destaque">Destaques</a>
+                </li>-->
+                <li>
+                    <a href="#unidades"> <i class="icon-line-location-map"></i>Unidades</a>
+                </li>
+                <li>
+                    <a href="#institucional"><i class="icon-line-marc"></i>Institucional</a>
+                </li>
+                <li>
+                    <a href="#promocaoSocial"><i class="icon-palestra"></i>Promoção Social</a>
+                </li>
+                <li>
+                    <a href="#sobre"><i class="icon-line-info"></i> Fale Conosco</a>
+                </li>
                 <li class="divider">
                     Unidades que sigo
                 </li>
@@ -294,7 +312,7 @@
                     <a class="icon close g vermelho sombra" onclick="FecharApp();">Sair</a>
                 </li>-->
             </ul>
-        </aside>
+        </nav>
     </div>
 </body>
 </html>

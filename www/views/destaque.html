@@ -1,20 +1,30 @@
 ﻿<header>
-    <a onclick='af.ui.toggleAsideMenu();' class='menuButton' style="display:block;float:right"></a>
-    <a id="backButton" class="button backButton">Voltar</a>
+    <a onclick='af.ui.toggleSideMenu();' class='menuButton' style="display:block;float:left"></a>
+    <!--<a id="backButton" class="button backButton">Voltar</a>-->
     <h1>Destaques</h1>
 </header>
 <main>
     <div class="main-container">
         <div class="swiper-container">
             <div class="swiper-wrapper">
+                <div class="swiper-slide blue-slide" style="background:url(http://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Unidade_SEST_e_SENAT_em_Itabuna_%28Bahia%29.jpg/1280px-Unidade_SEST_e_SENAT_em_Itabuna_%28Bahia%29.jpg) 50% 65% / 100% no-repeat ">
+                    <div class="slide-content">
+                        <h3>Nova unidade do SEST/SENAT</h3>
+                        <p>Sest inaugura nova unidade em Itabuna - BH</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide red-slide" style="background:url(http://1.bp.blogspot.com/-LW1q33_RNao/Ugqo07Nbf5I/AAAAAAAAEAA/WVuEB5ftxgs/s1600/A%C3%A7%C3%A3o+41+-+Fraternos+-+41.05.JPG) 50% 20% / 100% no-repeat;">
+                    <div class="slide-content">
+                        <h3>Desenvolvimento social </h3>
+                        <p>Sest amplia seus serviços a comunidade</p>
+                    </div>
+                </div>
                 <div class="swiper-slide blue-slide">
-                    <div class="title">Slide 1</div>
-                </div>
-                <div class="swiper-slide red-slide">
-                    <div class="title">Slide 2</div>
-                </div>
-                <div class="swiper-slide orange-slide">
-                    <div class="title">Slide 3</div>
+                    <div class="slide-content">
+                        <h3>Desenvolvimento social </h3>
+                        <p>Sest amplia seus serviços a comunidade</p>
+                    </div>
                 </div>
             </div>
             <div class="pagination"></div>
@@ -23,63 +33,85 @@
         <div class="box-destaque">
             <div class="destaque">
                 <div class="destaque-container">
-                    <div class="sestPicture picture-destaque">
-                        <img src="http://www.sestsenat.org.br/Arquivos%20SEST%20SENAT/Not%C3%ADcias/2014/Interna%20site%20SEST%20SENAT%20-%20320x181.jpg"
-                             style="/* height: 100%; */ width: 100%;border-radius: 3px; /* display: none; */" class="">
+                    <div class="destaque-front">
+                        <div class="sestPicture picture-destaque">
+                            <img src="http://www.sestsenat.org.br/Arquivos%20SEST%20SENAT/Not%C3%ADcias/2014/Interna%20site%20SEST%20SENAT%20-%20320x181.jpg"
+                                 style="/* height: 100%; */ width: 100%;border-radius: 3px; /* display: none; */" class="">
+                        </div>
+                        <p class="" style="color: #333;">
+                            Sest Senat comemora 20 anos com shows de duplas sertanejas
+                        </p>
                     </div>
-                    <p class="" style="color: #333;">
-                        Sest Senat comemora 20 anos com shows de duplas sertanejas
-                    </p>
+                    <div class="destaque-behind">
+                        <div class="destaque-options">
+                            <p>
+                                <i class="fa fa-5x fa-cloud-download" ></i>
+                                Sincronizar em Meus Destaques
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <hr />
                 <div class="footer-destaque">
                     <span class="" style="font-size: 0.9em;float: left;font-family: 'Open Sans Condensed', sans-serif !important;">01/09/2014</span>
                     <span class="icon-curtir"></span>
-                    <span class="fa-comment-o" style="font-family:'fontawesome'"></span>
+                    <span class="fa fa-comment-o" style="font-family:'fontawesome'"></span>
                 </div>
             </div>
             <div class="destaque">
                 <div class="destaque-container">
-                    <div class="sestPicture picture-destaque">                        
-                        <img src="http://www.sestsenat.org.br/Arquivos%20SEST%20SENAT/Not%C3%ADcias/2014/melhormotorista.jpg"
-                             style="/* height: 100%; */ width: 100%;border-radius: 3px; /* display: none; */" class="">
+                    <div class="destaque-front">
+                        <div class="sestPicture picture-destaque">
+                            <img src="http://www.sestsenat.org.br/Arquivos%20SEST%20SENAT/Not%C3%ADcias/2014/melhormotorista.jpg"
+                                 style="/* height: 100%; */ width: 100%;border-radius: 3px; /* display: none; */" class="">
+                        </div>
+                        <p class="">Nota Oficial Sobre o programa Primeira Habitação</p>
                     </div>
-                    <p class="">Nota Oficial Sobre o programa Primeira Habitação</p>
-                </div> <hr>
+                    <div class="destaque-behind"></div>
+                </div>
+                <hr />
                 <div class="footer-destaque">
                     <span style="font-size: 0.9em;float: left;font-family: Open Sans Condensed, sans-serif !important;">29/04/2014</span>
                     <span class="icon-curtir"></span>
-                    <span class="fa-comment-o" style="font-family:fontawesome;margin-right: 5px;"></span>
+                    <span class="fa fa-comment-o" style="font-family:fontawesome;margin-right: 5px;"></span>
                 </div>
             </div>
             <div class="destaque">
                 <div class="destaque-container">
-                    <div class="sestPicture picture-destaque">                        
-                        <img src="http://www.sestsenat.org.br/Arquivos%20SEST%20SENAT/Destaques/banner_intranet_palestras_2.jpg"
-                             style="/* height: 100%; */ width: 100%;border-radius: 3px; /* display: none; */" class="">
+                    <div class="destaque-front">
+                        <div class="sestPicture picture-destaque">
+                            <img src="http://www.sestsenat.org.br/Arquivos%20SEST%20SENAT/Destaques/banner_intranet_palestras_2.jpg"
+                                 style="/* height: 100%; */ width: 100%;border-radius: 3px; /* display: none; */" class="">
+                        </div>
+                        <p class="">Conheça os temas que promovem a consciência crítica do trabalhador</p>
                     </div>
-                    <p class="">Conheça os temas que promovem a consciência crítica do trabalhador</p>
-                </div> <hr>
+                    <div class="destaque-behind"></div>
+                </div>
+                <hr />
                 <div class="footer-destaque">
                     <span style="font-size: 0.9em;float: left;font-family: Open Sans Condensed, sans-serif !important;">26/08/2014</span>
                     <span class="icon-curtir"></span>
-                    <span class="fa-comment-o" style="font-family:fontawesome;margin-right: 5px;"></span>
+                    <span class="fa fa-comment-o" style="font-family:fontawesome;"></span>
                 </div>
             </div>
             <div class="destaque">
                 <div class="destaque-container">
-                    <div class="sestPicture picture-destaque">                        
-                        <img src="http://www.sestsenat.org.br/Arquivos%20SEST%20SENAT/Not%C3%ADcias/2014/empresas.png"
-                             style="/* height: 100%; */ width: 100%;border-radius: 3px; /* display: none; */" class="">
+                    <div class="destaque-front">
+                        <div class="sestPicture picture-destaque">
+                            <img src="http://www.sestsenat.org.br/Arquivos%20SEST%20SENAT/Not%C3%ADcias/2014/empresas.png"
+                                 style="/* height: 100%; */ width: 100%;border-radius: 3px; /* display: none; */" class="">
+                        </div>
+                        <p class="">Sest Senat convida instiuições para serem parceiras</p>
                     </div>
-                    <p class="">Sest Senat convida instiuições para serem parceiras</p>
-                </div> <hr> 
+                    <div class="destaque-behind"></div>
+                </div> <hr />
                 <div class="footer-destaque">
                     <span style="font-size: 0.9em;float: left;font-family: Open Sans Condensed, sans-serif !important;">24/08/2014</span>
                     <span class="icon-curtir"></span>
-                    <span class="fa-comment-o" style="font-family:fontawesome;margin-right: 5px;"></span>
+                    <span class="fa fa-comment-o" style="font-family:fontawesome;margin-right: 5px;"></span>
                 </div>
             </div>
+            <div class="clear-both"></div>
         </div>
     </div>
 </main>

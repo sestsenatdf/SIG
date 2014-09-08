@@ -4,6 +4,10 @@
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
+html {
+    min-width: 320px;
+}
+
 li {
     text-decoration: none;
 }
@@ -485,7 +489,7 @@ span.unidade-seta {
         width: 150px;
         height: 111px;
         margin-right: 10px;
-        display:block;
+        display: block;
     }
 
         .sestPicture.unidade:before {
@@ -637,20 +641,57 @@ hr {
 
 .picture-destaque {
     max-width: 100%;
-    /*background: rgba(0,0,0,0.1);*/
     min-height: 7em;
     border-radius: 3px;
+
+    max-height: 181px;
+    max-width: 320px;
+    margin: 0 auto;
+    border-radius: 3px;
+    display: block;
+}
+
+.destaque.box-behind .destaque-front {
+    display: none;
+}
+
+.destaque-behind {
+    height: 190px;
+    display: none;
+}
+
+    .destaque-behind:before {
+        /*content: "em breve =P salvar noticia em book";*/
+        /*font-size: 2em;*/
+        /*text-align: center;
+        float: left;
+        margin-top: 20%;
+        width: 100%;*/
+    }
+
+.destaque-options {
+    text-align: center;
+    padding-top: 18%;
+}
+
+    .destaque-options i {
+        display: block;
+    }
+
+.box-behind .destaque-behind {
+    display: block;
 }
 
 .destaque {
-    background: rgba(255,255,255,0.8);
-    border: 1px solid rgba(235,235,235,1);
+    background: rgb(255,255,255);
+    border: 1px solid rgb(235,235,235);
     border-radius: 4px;
-    margin-top: 10px;
+    margin-top: 2%;
 }
 
 .destaque-container {
     padding: 1em;
+    height: 220px;
 }
 
 @media (max-width:420px) {
@@ -668,7 +709,7 @@ hr {
 
     .destaque {
         width: 48%;
-        display: inline-block;
+        float: left;
     }
 
         /*.destaque:nth-of-type(odd) {
@@ -676,7 +717,7 @@ hr {
         }*/
 
         .destaque:nth-of-type(odd) {
-            margin: 2% 2.8% 0 0;
+            margin: 2% 4% 0 0;
         }
 }
 
@@ -687,12 +728,16 @@ hr {
     }
 
     .destaque {
+        float: left;
         width: 32%;
-        display: inline-block;
     }
 
         .destaque:nth-of-type(3n+2) {
-            margin: 1.5% 1.5% 0;
+            margin: 2% 2% 0;
+        }
+
+        .destaque:nth-of-type(3n+1) {
+            clear: both;
         }
 }
 
@@ -705,8 +750,10 @@ hr {
 
 
 #afui.sest > #aside_menu, #afui.sest > #menu {
-    background: -webkit-radial-gradient(50% 50%, ellipse closest-side, rgb(0, 58, 114), rgb(0, 58, 114), rgb(4, 52, 92));
+    /*background: -webkit-radial-gradient(50% 50%, ellipse closest-side, rgb(0, 58, 114), rgb(0, 58, 114), rgb(4, 52, 92));*/
+    background: rgb(4, 52, 92);
     color: #fff;
+    border :none;
 }
 
 /*.menu-sidebar ul {
@@ -721,7 +768,7 @@ hr {
     display: block;
     list-style: none;
     position: relative;
-    padding: 20px 20px 20px 10px;
+    padding: 15px 20px 15px 10px;
     border-bottom: none;
 }
 
@@ -828,16 +875,37 @@ hr {
     background: #fff;
 }
 
+.slide-content {
+    position: absolute;
+    bottom: 0;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    width: inherit;
+    text-align: left;
+    line-height: 0;
+}
+
 
 /******************Fim banner Destaque******************/
+
+#afui #destaque.panel {
+    background: -webkit-radial-gradient(50% 50%, ellipse closest-side, rgb(232, 231, 231), rgb(226, 226, 226), rgb(234, 234, 234));
+}
+
+    #afui #destaque.panel .main-container {
+        padding: 0;
+    }
 
 .footer-destaque {
     text-align: right;
     padding-top: 5px;
-    color: #ACACAF;
+    color: #FFF;
     font-weight: lighter;
     padding: 10px;
     height: 35px;
+    background: rgba(4, 52, 92,0.8);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 
 
@@ -870,7 +938,6 @@ hr {
 }
 
 .footer-destaque span:nth-child(3):before {
-    color: #bbb;
     margin-right: 5px;
 }
 
@@ -890,6 +957,12 @@ hr {
 #nav_destaque .list a {
     text-align: left;
 }
+
+    #nav_destaque .list a i {
+        margin-right: 5px;
+        font-size: 1.2em;
+    }
+
 
 #nav_destaque label.checkSest {
     zoom: 0.75;
@@ -912,7 +985,8 @@ hr {
 #afui input.toggle + label {
     float: left;
     width: 60px;
-    border-radius: 3px;
+    border-radius: 25px;
+    height: 25px;
 }
 
     #afui input.toggle + label:before, #afui input.toggle:checked + label:before {
@@ -929,9 +1003,9 @@ hr {
     #afui input.toggle + label > span {
         height: 24px;
         width: 24px;
-        top: -1px;
+        top: -2px;
         left: -2px;
-        border-radius: 0;
+        border-radius: 24px;
     }
 
 .checkSest {
@@ -940,4 +1014,8 @@ hr {
 
 #afui .panel, #afui #modalContainer, #afui #modal {
     background: #fff;
+}
+
+.clear-both {
+    clear: both;
 }
