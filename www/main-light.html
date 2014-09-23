@@ -44,7 +44,7 @@
     <script src='scripts/app.js'></script>
     <script src="scripts/swiper/idangerous.swiper.js"></script>
     <!--<script src="http://debug-software.intel.com/target/target-script-min.js#b8d51f18-fe38-11e3-8eac-22000a98b3d6"></script>-->
-    <script src="http://debug.build.phonegap.com//target/target-script-min.js#b8d51f18-fe38-11e3-8eac-22000a98b3d6"></script>
+    <!--<script src="http://debug.build.phonegap.com//target/target-script-min.js#b8d51f18-fe38-11e3-8eac-22000a98b3d6"></script>-->
 </head>
 <body onload="onLoad()">
     <div id="afui" class="sest">
@@ -66,6 +66,8 @@
             <!--login-->
             <!--<div class="panel" id="login" data-header="none" data-defer="views/login.html" data-footer="none"></div>-->
             <!--selected="true"-->
+            <!--destaque-->
+            <div class='panel' id="destaque" data-footer="footerSest" data-defer="views/destaque.html" data-nav="nav_destaque" selected="true"></div>
             <!--menu-->
             <div class="panel " id="menuSest" data-header="none" data-defer="views/menu.html" data-footer="none"></div>
             <!-- institucional-->
@@ -75,13 +77,11 @@
             <!--unidade-->
             <div class="panel" data-defer="views/unidade.html" id="unidade" data-nav="nav_config"></div>
             <!--unidade-->
-            <div class="panel" id="box-unidade" data-defer="views/box-unidade.html" data-nav="nav_config"></div>
+            <div class="panel" id="box-unidade" data-defer="views/box-unidade.html" <!--data-footer="none"--> data-nav="nav_config" style="overflow:hidden"></div>
             <!-- pesquisar-->
             <div class='panel' data-defer="views/promocaoSocial.html" id="promocaoSocial" data-nav="nav_config" data-footer="footerSest"></div>
             <!--sobre-->
             <div class='panel' id="sobre" data-defer="views/sobre.html" data-footer="footerSest" data-nav="nav_config"></div>
-            <!--destaque-->
-            <div class='panel' id="destaque" data-footer="footerSest" data-defer="views/destaque.html" data-nav="nav_destaque"></div>
             <!-- saude-->
             <div class="panel" id="saude" data-defer="views/saude.html" data-footer="footerSest" data-nav="nav_config"></div>
             <!-- lazer-->
@@ -102,13 +102,12 @@
                 </div>
             </div>
 
-            <div class="panel" id="mapa" title="Mapa 1" data-footer="footerSest" style="overflow:hidden">
+            <!--<div class="panel" id="mapa" title="Mapa 1" data-footer="footerSest" style="overflow:hidden">
                 <header>
-                    <!--<a onclick='af.ui.toggleSideMenu();' class='menuButton'></a>-->
                     <a id="backButton" class="button backButton">Voltar</a>
                 </header>
                 <div id="myMap"></div>
-            </div>
+            </div>-->
 
             <div class="panel" id="testeswiper" data-footer="footerSest" style="overflow:hidden">
                 <div class="swiper-container">
@@ -143,6 +142,7 @@
 
             </div>
 
+            <!--Modal Fechar-->
             <div class="panel" id="modalFechar">
                 <div style="width:100px;height:100px;background:#fff">
                     <h3 style="color:#444">Deseja fechar o aplicativo?</h3>
@@ -150,10 +150,12 @@
                     <button> Cancelar</button>
                 </div>
             </div>
+
+            <!--Modal Destaque-->
             <div class="panel" id="modalDestaque" title="Primeira Habilitação" style="background:#fff;width:100%;height:100%;">
-                <div  class="main-container modal-destaque upper-first-letter">
+                <div class="main-container modal-destaque upper-first-letter">
                     <h3>Nota Oficial sobre o programa Primeira Habilitação</h3>
-                    <img src="http://www.sestsenat.org.br/Arquivos%20SEST%20SENAT/Not%C3%ADcias/2014/primeira.jpg"  />
+                    <img src="http://www.sestsenat.org.br/Arquivos%20SEST%20SENAT/Not%C3%ADcias/2014/primeira.jpg" />
                     <p>
                         O Sest Senat vem a público esclarecer que não procedem as notícias que circulam por e-mail e mensagens de celular sobre a reabertura das inscrições do projeto Primeira Habilitação – Inserção Profissional de Jovens de Baixa Renda.
                     </p>
@@ -171,6 +173,44 @@
                     </p>
                 </div>
             </div>
+
+            <!--Modal Servicos-->
+            <div class="panel" id="modalServico" style="background:#fff;width:100%;height:100%;">
+                <div id="navServico">
+                    <ul class="tabServicos">
+                        <li data-for="servicoSaude">
+                            <p>
+                                <i class=" icon-estetoscopio icon-2x "></i>
+                                Saúde
+                            </p>
+                        </li>
+                        <li data-for="servicoCursos">
+                            <p>
+                                <i class="icon-palestra icon-2x"></i>
+                                Cursos
+                            </p>
+                        </li>
+                        <li data-for="servicoLazer">
+                            <p>
+                                <i class="icon-esporte icon-2x"></i>
+                                Esporte e Lazer
+                            </p>
+                        </li>
+                        <li data-for="servicoOdontologia">
+                            <p>
+                                <i class="icon-dente icon-2x"></i>
+                                Odontologia
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div id="containerServico">
+                    <div id="servicoSaude" style="display:none;"></div>
+                    <div id="servicoCursos" style="display:none;"></div>
+                    <div id="servicoLazer" style="display:none;"></div>
+                    <div id="servicoOdontologia" style="display:none;"></div>
+                </div>
+            </div>
         </div>
 
         <footer id='footerSest'>
@@ -179,6 +219,7 @@
             <a href="#destaque"><i class="icon-line-marc icon-2x"></i><p class="icone">Destaque</p></a>
             <a href="#sobre"><i class="icon-line-info icon-2x"></i><p class="icone">Sobre</p></a>
         </footer>
+
 
         <!-- first side menu is the default -->
         <!--<nav id="nav_config" class="menu-sidebar">
@@ -274,7 +315,7 @@
                 </li>
                 <li>
                     <a onclick="af.ui.toggleAsideMenu();" class="fa fa-2x fa-plus fa-adjust sombra" href="#unidades">Add Unidade</a>
-                </li>              
+                </li>
                 <li class="divider">
                     Tipo de Destaque
                 </li>

@@ -75,14 +75,18 @@ function buscarDestaque() {
                              "<div class='sestPicture picture-destaque'></div>" +
                              "<p>Lorem ipsum dolor sit amet, duo minim putant option et, qui in falli persius adolescens, solet evertitur eos ei. Legere volutpat tractatos in mel, veritus nominavi mel id. In duo modus impetus neglegentur.</p>" +
                          "</div>" +
-                         " <div class='destaque-behind'></div>" +
+                         "<div class='destaque-behind'>" +
+                            "<div class='destaque-options'>" +
+                                "<p><i class='fa fa-5x fa-cloud-download' ></i>Sincronizar em Meus Destaques</p>" +
+                            "</div>" +
+                         "</div>" +
                     "</div>" +
                     "<hr />" +
                     "<div class='footer-destaque'>" +
                         "<span  style='font-size: 0.9em;float: left;font-family: Open Sans Condensed, sans-serif !important;'>01/09/2014</span>" +
                         "<span class='icon-curtir'></span>" +
                         "<span class='fa-comment-o' style='font-family:fontawesome;margin-right: 5px;'></span>" +
-                    "</div>"+
+                    "</div>" +
                 "</div>";
         }
         $(destaques).insertBefore("div.box-destaque .clear-both");
@@ -103,48 +107,88 @@ $.ui.ready(function () {
 
     Login();
     EnviarMensagem();
-    SelecionaUnidade();
 
     EventosDestaque();
-
     EventosTeste();
-
-
-
-    $("#mapa").on("unloadpanel", function () {
-        //$.ui.enableSideMenu();
-        //$.ui.enableRightSideMenu();
-    });
-
+    EventosUnidade();
+    EventosFaleConosco();
     AdicionarValidacao();
 
+});
+
+function EventosFaleConosco() {
     $("#sobre").on("unloadpanel", function () {
         LimparDados("#sobre");
         LimparValidacoes("#formEmail");
     });
+}
 
-    $("#mapa").on("loadpanel", function (data) {
-        //$.ui.disableSplitView();
-        //$.ui.disableRightSideMenu();
-        //$.ui.disableLeftSideMenu();
-        setTimeout(function () {
-            google.maps.event.trigger(map, "resize");
-            centralizaMapa();
-        }, 200);
+function EventosUnidade() {
+    $("#unidades").on("unloadpanel", function () {
+        //if (!$("#unidades:visible").leangth) {
+        LimparDados("#unidades");
+        $("#qntUnidade").empty();
+        $("#listaUnidade").empty();
+        //}
+    });
+    //$("a[href='#unidades']").on("click", function () {
+    //    //if (!$("#unidades:visible").leangth) {
+    //    LimparDados("#unidades");
+    //    $("#qntUnidade").empty();
+    //    $("#listaUnidade").empty();
+    //    //}
+    //});
+
+    $("#slUF").change(function () {
+        var uf = $("#slUF").val();
+        var url = (window.cordova ? urlExterno : urlLocalhost) + "/api/unidade/PesquisarPorUf";
+        listaUnidade(url, uf, function () {
+            var boxHeight = ($("#unidades").height() - $("#filtroUnidade").height()) - 35;/* - 285;*/
+            $("#boxLista").height(boxHeight);
+            $("#boxLista").scroller();//.scrollToTop();
+
+            /*Bind evento de unidade*/
+            BindUnidade();
+        },
+        function () {
+            notificacao.alert("Ocorreu um erro", function () {
+                notificacao.beep(2);
+                notificacao.vibrate(200);
+            }, "Erro", "OK");
+        });
     });
 
-    $(".tabServicos").on("click", "li", function () {
-        if (!$(this).hasClass("ativo")) {
-            $(".conteudoServico div").hide();
-            $("#" + $(this).attr("data-for")).parent().show();
-            $("#" + $(this).attr("data-for")).fadeIn("fast");
-            $(".tabServicos li").removeClass("ativo");
-            $(this).addClass("ativo");
-            $.ui.scrollToBottom("box-unidade", "400");
+    $("#afui").on("click ", ".tabServicos li", function () {
+        //zera header e set title
+        $("#modalServico header").remove();
+        $("#containerServico").hide();
+        $.ui.scrollingDivs["modal_container"].scrollToTop()
+        //$("#containerServico").empty();
+        $("#modalServico").data("title", $(this).text());
+        $("#navServico .tabServicos li").removeClass("ativo");
+        $("#navServico .tabServicos li[data-for='" + $(this).attr("data-for") + "']").addClass("ativo");
+        //limpa modal e cola conteudo novo
+        //$("#" + $(this).attr("data-for")).fadeIn();
+        $("#containerServico > div").hide();
+        $("#" + $(this).attr("data-for")).show();
+        //$("#" + $(this).attr("data-for")).clone().appendTo("#containerServico");
+        if ($(this).closest("div").attr("id") == "servicos")
+            $.ui.showModal("modalServico", "pop");
+        $("#containerServico").fadeIn(500);
+
+    });
+
+    $("#btAmpliarMapa").on("click  swipeUp swipeDown", function () {
+        if ($("#btAmpliarMapa:contains('Expandir Mapa')").length) {
+            $(this).text("Contrair Mapa");
         }
+        else {
+            $(this).text("Expandir Mapa");
+        }
+        $("#afui").toggleClass("fullScreen");
+        centralizaMapa();
     });
-});
-
+}
 
 function EventosDestaque() {
     //Implementa o carregamento no fim do scroller
@@ -203,16 +247,35 @@ function EventosDestaque() {
     //swipeRight
     //swipeUp
     //swipeDown
+
+    //$("#destaque").on("webkitAnimationEnd", ".destaque.gira-esquerda,.destaque.gira-direita", function (evento, objeto) {
+
+    //    $(this).removeClass("gira-esquerda gira-direita");
+    //    //this.offsetWidth = this.offsetWidth;
+
+    //});
+
+    //$("#destaque").on("webkitAnimationEnd", ".destaque.gira-esquerda,.destaque.gira-direita", function (evento, objeto) {        
+    //    $(this).removeClass("gira-esquerda gira-direita");
+    //});
+
+
     $("#destaque").on("swipeLeft swipeRight", ".destaque", function (evento, objeto) {
         console.log("swipe");
         var rotY;
+
+        var destaque = $(this);
+
         if (evento.type == "swipeLeft") {
+            //destaque.addClass("gira-esquerda");
             rotY = "-360deg";
         } else {
+            //destaque.addClass("gira-direita");            
             rotY = "360deg";
         }
 
-        var destaque = $(this);
+        //destaque.toggleClass("box-behind");
+
         setTimeout(function () { destaque.toggleClass("box-behind"); }, 250);
         $(this).css3Animate({
             //x: 20,
@@ -232,7 +295,7 @@ function EventosDestaque() {
         });
     });
 
-    $("#destaque").on("click", ".destaque", function () {
+    $("#destaque").on("click  ", ".destaque", function () {
         if (!$(this).hasClass("box-behind"))
             $.ui.showModal('modalDestaque', "pop");
     });
@@ -277,7 +340,7 @@ function BindEventos() {
 }
 
 function EnviarMensagem() {
-    $("#btnEnviar").click(function (e) {
+    $("#btnEnviar").on("click ", function (e) {
         e.preventDefault();
         if ($("#formEmail").valid()) {
             var url = (window.cordova ? urlExterno : urlLocalhost) + "/api/app/EnviarEmail";
@@ -329,34 +392,6 @@ function onConfirm(button) {
     }
 }
 
-function SelecionaUnidade() {
-    $("#unidades").on("unloadpanel", function () {
-        //if (!$("#unidades:visible").length) {
-        LimparDados("#unidades");
-        $("#qntUnidade").empty();
-        $("#listaUnidade").empty();
-        //}
-    });
-
-    $("#slUF").change(function () {
-        var uf = $("#slUF").val();
-        var url = (window.cordova ? urlExterno : urlLocalhost) + "/api/unidade/PesquisarPorUf";
-        listaUnidade(url, uf, function () {
-            var boxHeight = ($("#unidades").height() - $("#filtroUnidade").height()) - 35;/* - 285;*/
-            $("#boxLista").height(boxHeight);
-            $("#boxLista").scroller().scrollToTop()
-
-            /*Bind evento de unidade*/
-            BindUnidade();
-        },
-        function () {
-            notificacao.alert("Ocorreu um erro", function () {
-                notificacao.beep(2);
-                notificacao.vibrate(200);
-            }, "Erro", "OK");
-        });
-    });
-}
 
 function listaUnidade(url, uf, callbackSucesso, callbackErro) {
     try {
@@ -398,9 +433,8 @@ function listaUnidade(url, uf, callbackSucesso, callbackErro) {
 }
 
 function BindUnidade() {
-    $("#boxLista").on("click", "li.btUnidade", function () {
+    $("#boxLista").on("click  ", "li.btUnidade", function () {
         inicioLoading("Carregando informações sobre a unidade...");
-        $(".tabServicos li:first").click();
         var id = $(arguments[0].currentTarget).attr("data-id");
         var url = (window.cordova ? urlExterno : urlLocalhost) + "/api/unidade/Recuperar";
         $.ajax({
@@ -410,7 +444,9 @@ function BindUnidade() {
             dataType: "json",
             crossDomain: true,
             success: function (data) {
-                fimLoading();
+                var titulo = data.Tipologia + " - " + data.NomeAbreviado.replace("SEST SENAT - ", "");
+                $("#box-unidade header h1").html(titulo);
+                $("#box-unidade").data("title", titulo);
                 data.imagem = "http://www.sestsenat.org.br/PublishingImages/Unidades/" + id + ".jpg";
                 $("#containerTmpl").html($("#unidadeTmpl").html());
                 $("#containerUnidade").loadTemplate("#containerTmpl", data, {
@@ -418,14 +454,12 @@ function BindUnidade() {
                 });
                 try {
                     carregaMapa(data.Latitude, data.Longitude);
-                    carregaServicos(id);
+                    carregaServicos(data.ServicosUnidade);
                 } catch (e) {
                     alert("erro ao carregar mapa: " + e);
                 }
+                fimLoading();
                 $.ui.loadContent("#box-unidade", false, false, "slide");
-                //if (url.contains(urlExterno, true))
-                //    unidade.NomeAbreviado = unidade.Nome;
-                $.ui.setTitle(data.Tipologia + " - " + data.NomeAbreviado);
             },
             error: function (data) {
                 fimLoading();
@@ -435,53 +469,40 @@ function BindUnidade() {
 
 }
 
-function carregaServicos(idUnidade) {
+function carregaServicos(servicosUnidade) {
     $("#servicoSaude").empty();
     $("#servicoCursos").empty();
     $("#servicoLazer").empty();
     $("#servicoOdontologia").empty();
-    ServicoCurso(idUnidade);
-    ServicoEsporte(idUnidade);
-    ServicoOdontologia(idUnidade);
-    ServicoSaude(idUnidade);
-    $(".conteudoServico").scroller();
+    ServicoCurso(servicosUnidade.Cursos);
+    ServicoEsporte(servicosUnidade.Esporte);
+    ServicoOdontologia(servicosUnidade.Odontologia);
+    ServicoSaude(servicosUnidade.Medico);
+    //$(".conteudoServico").scroller();
 }
 
-function ServicoCurso(unidade) {
-    var url = (window.cordova ? urlExterno : urlLocalhost) + "/api/servicoUnidade/cursos";
-    $.ajax({
-        type: "GET",
-        url: url,
-        data: { 'idunidade': unidade },
-        dataType: "json",
-        crossDomain: true,
-        success: function (data) {
+function ServicoCurso(cursos) {  
             var resultado = "<ul>";
-            if (data.length > 0) {
-                resultado += jQuery.map(data, function (val, i) {
-                    return "<li data-id='" + val.Id + "'>" + val.Nome + "</li>";
-                }).join("");
+            if (cursos.length > 0) {
+                resultado += jQuery.map(cursos, function (val, i) {
+                    //onclick=\"showHide(this,\'conteudo" + val.Id + "\');\"
+                    return "<li class=\"collapsed\" onclick=\"showHide(this,\'conteudo" + val.Id + "\');\" >" +
+                        "<div><span class=\"DataInicioCurso\">" + val.DataInicioFormatada + "</span><span>" + val.Nome + "</span></div>" +
+                        "<div id='conteudo" + val.Id + "' class='conteudoCurso' style='display:none' >" +
+                        jQuery.map(val.CursoConteudos, function (cc, i) {
+                            return "<p><span style=\"width: 75%;display: inline-block;\">" + cc.Nome + "</span><span style=\"width: 25%;text-align: right;display: inline-block;\">" + cc.CargaHoraria + " horas</span></p>";
+                        }).join("") +
+                        "<p>Carga horária total<span style=\"float:right\">" + val.CursoConteudos[0].CargaHorariaTotal + " horas</span></p>" +
+                        "</div></li>";
+                }).join(" ");
             } else {
                 resultado += "<li>Unidade não está oferecendo cursos no momento</li>"
             }
             resultado += "</ul>";
 
-            $("#servicoCursos").html(resultado);
-        },
-        error: function (data) {
-            fimLoading();
-        }
-    });
+            $("#servicoCursos").html(resultado); 
 }
-function ServicoSaude(unidade) {
-    var url = (window.cordova ? urlExterno : urlLocalhost) + "/api/servicoUnidade/medico";
-    $.ajax({
-        type: "GET",
-        url: url,
-        data: { 'idunidade': unidade },
-        dataType: "json",
-        crossDomain: true,
-        success: function (data) {
+function ServicoSaude(data) {
             var resultado = "<ul>";
             if (data.length > 0) {
                 resultado += jQuery.map(data, function (val, i) {
@@ -492,22 +513,9 @@ function ServicoSaude(unidade) {
             }
             resultado += "</ul>";
 
-            $("#servicoSaude").html(resultado);
-        },
-        error: function (data) {
-            // fimLoading();
-        }
-    });
+            $("#servicoSaude").html(resultado); 
 }
-function ServicoEsporte(unidade) {
-    var url = (window.cordova ? urlExterno : urlLocalhost) + "/api/servicoUnidade/esporte";
-    $.ajax({
-        type: "GET",
-        url: url,
-        data: { 'idunidade': unidade },
-        dataType: "json",
-        crossDomain: true,
-        success: function (data) {
+function ServicoEsporte(data) {    
             var resultado = "<ul>";
             if (data.length > 0) {
                 resultado += jQuery.map(data, function (val, i) {
@@ -518,22 +526,9 @@ function ServicoEsporte(unidade) {
             }
             resultado += "</ul>";
 
-            $("#servicoLazer").html(resultado);
-        },
-        error: function (data) {
-            // fimLoading();
-        }
-    });
+            $("#servicoLazer").html(resultado);  
 }
-function ServicoOdontologia(unidade) {
-    var url = (window.cordova ? urlExterno : urlLocalhost) + "/api/servicoUnidade/odontologia";
-    $.ajax({
-        type: "GET",
-        url: url,
-        data: { 'idunidade': unidade },
-        dataType: "json",
-        crossDomain: true,
-        success: function (data) {
+function ServicoOdontologia(data) {   
             var resultado = "<ul>";
             if (data.length > 0) {
                 resultado += jQuery.map(data, function (val, i) {
@@ -544,12 +539,7 @@ function ServicoOdontologia(unidade) {
             }
             resultado += "</ul>";
 
-            $("#servicoOdontologia").html(resultado);
-        },
-        error: function (data) {
-            //fimLoading();
-        }
-    });
+            $("#servicoOdontologia").html(resultado);  
 }
 
 function Login() {
